@@ -1,0 +1,24 @@
+    window.digiAppSkinning = {
+        colors: {
+            primary: '#F8E800'
+        },
+        /*menu styles*/
+        mainMenu: {
+            MainMenuBackground: #562525
+            MainMenuItemColor: #fff
+            MainMenuItemColorActive: #ffb700
+        },
+        /*slider styles*/
+        slider: {
+            sliderBackground: #562525,
+            sliderItemColor: #fff,
+            sliderItemSportCount: #cccccc,
+            sliderItemActiveColor: #ffb700,
+    
+            sliderInlineBackground: #562525,
+            sliderInlineColor: #cccccc,
+            sliderInlineBorderColor: #ffb700,
+            sliderInlineActiveBackground: #7a3434,
+            sliderInlineActiveColor: #fff,
+        },
+    

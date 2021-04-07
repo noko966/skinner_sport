@@ -1,0 +1,77 @@
+﻿/**************************************** Stepped Slider control /****************************************/
+.SteppedSliderContainer {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+.ss__label {
+	width: 70px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.ss__step_cont {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width:100%;
+}
+
+
+.ss__step_slider {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+	-webkit-box-flex: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	height: 18px;
+	padding-left: 9px;
+	padding-right: 9px;
+}
+
+.ss__step_slider .ss__slider {
+	width:18px;
+	height:18px;
+	background-color:#fff;
+	border-radius:50%;
+	position:absolute;
+	top:0;
+}
+
+	.ss__step_slider .ss__ruller {
+		width: 100%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+		.ss__step_slider .ss__ruller > div {
+			flex: 1;
+			height: 2px;
+			margin-right:1px;
+			background-color: #666;
+		}
+/****************************************** Stepped Slider control ******************************************/

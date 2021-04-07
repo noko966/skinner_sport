@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mobile view</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/rulesAssets/rules.css">
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <%- nav %>
+    <div class="layout">
+        <header>
+            <div class="displayFlex alCen spcBtw">
+                <a id="A1" href="//totogaming.am" class="logo" target="_top"></a>
+                <div class="languages">
+                    <div id="selLang">
+                        <a id="hy" class="displayFlex alCen langRow selected">
+                            <span class="ns lang hy"></span>
+                            <span style="width: calc((100%) - 21px);" class="ns txt">Armenian</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="main" class="displayFlex">
+            <div id="menuContainer" class="tg_native_styled_scroll">
+                <ul class="expandable-list">
+                    <% new Array(10).fill().forEach(a => { %>
+                    <li class="mI-button menuleft subMenu ">
+                        <a class="menuleftа displayFlex">
+                            <span class="name">Regulation</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <% }) %>
+                    <li class="mI-button menuleft subMenu ">
+                        <a class="menuleftа displayFlex">
+                            <span class="name">Regulation</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="menu-list">
+                            <li class="active">
+                                <a class="s-button" title="Վճարումների կանոններ">Virtual Sports</a>
+                            </li>
+                            <% new Array(6).fill().forEach(a => { %>
+                            <li>
+                                <a class="s-button" title="Վճարումների կանոններ">Virtual Sports</a>
+                            </li>
+                            <% }) %>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="main-col">
+                <h1 class="content-head">About us</h1>
+                <div id="content" class="tg_native_styled_scroll">
+                    <div id="contentText" class="inner-content">
+                        <% new Array(4).fill().forEach(a => { %>
+                        <p style="font-size: 16px; line-height: 17px; margin-bottom: 10px;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam. Enim nec dui nunc mattis. Posuere ac ut consequat semper viverra nam libero justo. &nbsp;</p>
+                        <p>
+                        <% }) %>
+                        <p>&nbsp;</p>
+                        <span style="padding-left:0;" class="content-head"><span style="font-size:14px;"><span><strong>WHY TO PLAY IN KOKOGAMING?</strong></span></span></span></p>
+                        <p>&nbsp;</p>
+                        <% new Array(4).fill().forEach(a => { %>
+                            <p><span><span style="font-size:14px;"><span style="font-family:tahoma,geneva,sans-serif;">✓ Live streaming of events</span></span></span></p>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+
+<script src="/tinyColor.js"></script>
+<script src="/cuid.js"></script>
+<script src="/neuron.js"></script>
+<script src="/cssTemplates/sportRules.js"></script>
+<script src="/skinner.js"></script>
+
+
+</html>

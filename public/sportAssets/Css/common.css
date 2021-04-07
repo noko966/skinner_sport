@@ -1,0 +1,575 @@
+/*FOR BITWIN*/
+@font-face {
+    font-family: 'AvenirNextLTProRegular';
+    src: url('/fonts/AvenirNextLTPro-Regular/AvenirNextLTPro-Regular.eot');
+    src: url('/fonts/AvenirNextLTPro-Regular/AvenirNextLTPro-Regular.eot?#iefix') format('embedded-opentype'), url('/fonts/AvenirNextLTPro-Regular/AvenirNextLTPro-Regular.woff') format('woff'), url('/fonts/AvenirNextLTPro-Regular/AvenirNextLTPro-Regular.svg#AvenirNextLTProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextLTProDemi';
+    src: url('/fonts/AvenirNextLTProDemi/AvenirNextLTPro-Demi.eot');
+    src: url('/fonts/AvenirNextLTProDemi/AvenirNextLTPro-Demi.eot?#iefix') format('embedded-opentype'), url('/fonts/AvenirNextLTProDemi/AvenirNextLTPro-Demi.woff') format('woff'), url('/fonts/AvenirNextLTProDemi/AvenirNextLTPro-Demi.svg#AvenirNextLTProDemi') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextLTProBold';
+    src: url('/fonts/AvenirNextLTProBold/AvenirNextLTPro-Bold.eot');
+    src: url('/fonts/AvenirNextLTProBold/AvenirNextLTPro-Bold.eot?#iefix') format('embedded-opentype'), url('/fonts/AvenirNextLTProBold/AvenirNextLTPro-Bold.woff') format('woff'), url('/fonts/AvenirNextLTProBold/AvenirNextLTPro-Bold.svg#AvenirNextLTProBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TotoFont';
+    src: url('../fonts/sportv1/Digitain_Font.eot');
+    src: url('../fonts/sportv1/Digitain_Font.eot&#iefix') format('embedded-opentype'), url('../fonts/sportv1/Digitain_Font.woff') format('woff'), url('../fonts/sportv1/Digitain_Font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'digiSportIcons';
+    src: url('../fonts/sportIconFont/digiSportIcons.eot?1588149509614');
+    src: url('../fonts/sportIconFont/digiSportIcons.eot?#iefix-1588149509614') format('embedded-opentype'), url('../fonts/sportIconFont/digiSportIcons.woff?1588149509614') format('woff'), url('../fonts/sportIconFont/digiSportIcons.ttf?1588149509614') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+[class^='digi_icon-']:before,
+[class*=' digi_icon-']:before {
+    font-family: 'digiSportIcons';
+    display: block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 20px;
+    vertical-align: middle;
+    font-weight: normal;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '\ea1e';
+    direction: ltr !important;
+}
+
+/*
+Glyphs list
+*/
+
+.digi_icon-1:before {
+    content: '\ea01';
+}
+
+.digi_icon-10:before {
+    content: '\ea02';
+}
+
+.digi_icon-100:before {
+    content: '\ea03';
+}
+
+.digi_icon-101:before {
+    content: '\ea04';
+}
+
+.digi_icon-11:before {
+    content: '\ea05';
+}
+
+.digi_icon-12:before {
+    content: '\ea06';
+}
+
+.digi_icon-13:before {
+    content: '\ea07';
+}
+
+.digi_icon-14:before {
+    content: '\ea08';
+}
+
+.digi_icon-15:before {
+    content: '\ea09';
+}
+
+.digi_icon-16:before {
+    content: '\ea0a';
+}
+
+.digi_icon-17:before {
+    content: '\ea0b';
+}
+
+.digi_icon-18:before {
+    content: '\ea0c';
+}
+
+.digi_icon-19:before {
+    content: '\ea0d';
+}
+
+.digi_icon-2:before {
+    content: '\ea0e';
+}
+
+.digi_icon-20:before {
+    content: '\ea0f';
+}
+
+.digi_icon-21:before {
+    content: '\ea10';
+}
+
+.digi_icon-22:before {
+    content: '\ea11';
+}
+
+.digi_icon-23:before {
+    content: '\ea12';
+}
+
+.digi_icon-24:before {
+    content: '\ea13';
+}
+
+.digi_icon-25:before {
+    content: '\ea14';
+}
+
+.digi_icon-26:before {
+    content: '\ea15';
+}
+
+.digi_icon-27:before {
+    content: '\ea16';
+}
+
+.digi_icon-28:before {
+    content: '\ea17';
+}
+
+.digi_icon-29:before {
+    content: '\ea18';
+}
+
+.digi_icon-3:before {
+    content: '\ea19';
+}
+
+.digi_icon-30:before {
+    content: '\ea1a';
+}
+
+.digi_icon-31:before {
+    content: '\ea1b';
+}
+
+.digi_icon-32:before {
+    content: '\ea1c';
+}
+
+.digi_icon-33:before {
+    content: '\ea1d';
+}
+
+.digi_icon-34:before {
+    content: '\ea1e';
+}
+
+.digi_icon-35:before {
+    content: '\ea1f';
+}
+
+.digi_icon-36:before {
+    content: '\ea20';
+}
+
+.digi_icon-37:before {
+    content: '\ea21';
+}
+
+.digi_icon-38:before {
+    content: '\ea22';
+}
+
+.digi_icon-39:before {
+    content: '\ea23';
+}
+
+.digi_icon-4:before {
+    content: '\ea24';
+}
+
+.digi_icon-40:before {
+    content: '\ea25';
+}
+
+.digi_icon-41:before {
+    content: '\ea26';
+}
+
+.digi_icon-42:before {
+    content: '\ea27';
+}
+
+.digi_icon-43:before {
+    content: '\ea28';
+}
+
+.digi_icon-44:before {
+    content: '\ea29';
+}
+
+.digi_icon-45:before {
+    content: '\ea2a';
+}
+
+.digi_icon-46:before {
+    content: '\ea2b';
+}
+
+.digi_icon-47:before {
+    content: '\ea2c';
+}
+
+.digi_icon-48:before {
+    content: '\ea2d';
+}
+
+.digi_icon-49:before {
+    content: '\ea2e';
+}
+
+.digi_icon-5:before {
+    content: '\ea2f';
+}
+
+.digi_icon-50:before {
+    content: '\ea30';
+}
+
+.digi_icon-51:before {
+    content: '\ea31';
+}
+
+.digi_icon-52:before {
+    content: '\ea32';
+}
+
+.digi_icon-53:before {
+    content: '\ea33';
+}
+
+.digi_icon-54:before {
+    content: '\ea34';
+}
+
+.digi_icon-55:before {
+    content: '\ea35';
+}
+
+.digi_icon-56:before {
+    content: '\ea36';
+}
+
+.digi_icon-57:before {
+    content: '\ea37';
+}
+
+.digi_icon-58:before {
+    content: '\ea38';
+}
+
+.digi_icon-59:before {
+    content: '\ea39';
+}
+
+.digi_icon-6:before {
+    content: '\ea3a';
+}
+
+.digi_icon-60:before {
+    content: '\ea3b';
+}
+
+.digi_icon-61:before {
+    content: '\ea3c';
+}
+
+.digi_icon-62:before {
+    content: '\ea3d';
+}
+
+.digi_icon-63:before {
+    content: '\ea3e';
+}
+
+.digi_icon-64:before {
+    content: '\ea3f';
+}
+
+.digi_icon-65:before {
+    content: '\ea40';
+}
+
+.digi_icon-66:before {
+    content: '\ea41';
+}
+
+.digi_icon-67:before {
+    content: '\ea42';
+}
+
+.digi_icon-68:before {
+    content: '\ea43';
+}
+
+.digi_icon-69:before {
+    content: '\ea44';
+}
+
+.digi_icon-7:before {
+    content: '\ea45';
+}
+
+.digi_icon-70:before {
+    content: '\ea46';
+}
+
+.digi_icon-71:before {
+    content: '\ea47';
+}
+
+.digi_icon-72:before {
+    content: '\ea48';
+}
+
+.digi_icon-73:before {
+    content: '\ea49';
+}
+
+.digi_icon-74:before {
+    content: '\ea4a';
+}
+
+.digi_icon-75:before {
+    content: '\ea4b';
+}
+
+.digi_icon-76:before {
+    content: '\ea4c';
+}
+
+.digi_icon-77:before {
+    content: '\ea4d';
+}
+
+.digi_icon-78:before {
+    content: '\ea4e';
+}
+
+.digi_icon-79:before {
+    content: '\ea4f';
+}
+
+.digi_icon-8:before {
+    content: '\ea50';
+}
+
+.digi_icon-80:before {
+    content: '\ea51';
+}
+
+.digi_icon-81:before {
+    content: '\ea52';
+}
+
+.digi_icon-83:before {
+    content: '\ea53';
+}
+
+.digi_icon-84:before {
+    content: '\ea54';
+}
+
+.digi_icon-85:before {
+    content: '\ea55';
+}
+
+.digi_icon-86:before {
+    content: '\ea56';
+}
+
+.digi_icon-87:before {
+    content: '\ea57';
+}
+
+.digi_icon-88:before {
+    content: '\ea58';
+}
+
+.digi_icon-89:before {
+    content: '\ea59';
+}
+
+.digi_icon-9:before {
+    content: '\ea5a';
+}
+
+.digi_icon-90:before {
+    content: '\ea5b';
+}
+
+.digi_icon-91:before {
+    content: '\ea5c';
+}
+
+.digi_icon-94:before {
+    content: '\ea5d';
+}
+
+.digi_icon-95:before {
+    content: '\ea5e';
+}
+
+.digi_icon-96:before {
+    content: '\ea5f';
+}
+
+.digi_icon-97:before {
+    content: '\ea60';
+}
+
+.digi_icon-99:before {
+    content: '\ea61';
+}
+
+.digi_icon-102:before {
+    content: '\ea62';
+}
+
+
+.sportIcon {
+    text-transform: none;
+    font-family: TotoFont;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.displayFlex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.displayNone {
+    display: none;
+}
+
+.flexWrap {
+    flex-flow: wrap;
+}
+
+.alignStretch {
+    align-items: stretch;
+}
+
+.alignItemsCenter {
+    align-items: center;
+}
+
+.alignItemsStretch {
+    align-items: stretch;
+}
+
+.verticalAlignCenter {
+    vertical-align: central;
+}
+
+.flex1 {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+.flex2 {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+.flex3 {
+    flex-grow: 3;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+.flex4 {
+    flex-grow: 4;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+.flexDirectionColumn {
+    flex-direction: column;
+}
+
+.flexDirectionRow {
+    flex-direction: row;
+}
+
+.textAlignCenter {
+    text-align: center;
+}
+
+.alignSelfCenter {
+    align-self: center;
+}
+
+.txtal {
+    text-align: left;
+}
+
+.txtar {
+    text-align: right;
+}
+
+.justifyContentSpaceBetween {
+    justify-content: space-between;
+}
+
+.wrap {
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flexStart {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.flexEnd {
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+}
