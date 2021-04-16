@@ -1046,7 +1046,7 @@ function createCss(c) {
       : ``
     }
 
-    ${c.isSolidView ? `
+    ${c.isRetroView ? `
     .sportLeftPane .selectorWrapper{
         margin-bottom: 0;
     }
@@ -1134,6 +1134,111 @@ function createCss(c) {
     `
       : ``
     }
+
+    ${c.isFutureView ? `
+
+    .tab_selector > i {
+        transform: skew(5deg, 0);
+    }
+    .selector_panel,
+    .tg__coupon_tabs_cont {
+        padding: 0px 8px;
+    }
+    .tg__btn,
+    .tg_input,
+    .africanView .tg--home2__stakeItem,
+    .tab_cupon,
+    .tab_selector {
+        transform: skew(-5deg, 0);
+    }
+    .gameContentTitle,
+    .tg__block_header, .tg__info_panel .selectorWrapper,
+    .paperView .es__home_bet_header{
+        background: linear-gradient(90deg, ${c.headerBg} 0%, ${c.primaryBg} 100%);
+    }
+    .gameContentTitle > div:last-child{
+        color: ${c.primaryTxt};
+    }
+    .tab_selector{
+        background: linear-gradient(90deg, ${c.primaryBg} 0%, ${c.tabBg} 30%, ${c.tabBg} 100%);
+    }
+
+    .tg__one_game,
+    .tg__left_menu_item--lvl1,
+    .tg__left_menu_item--lvl2,
+    .tg__left_menu_item--lvl3,
+    .stake_item_panel {
+        background: transparent !important;
+        transform: skew(-10deg, 0);
+        border-bottom: 2px solid !important;
+        border-right: 2px solid !important;  
+    }
+    .tg__left_menu_item--lvl1 .tg__left_menu_item_text,
+    .tg__left_menu_item--lvl1 .tg-ico-arrow,
+    .tg__left_menu_item--lvl2 .tg__left_menu_item_text,
+    .tg__left_menu_item--lvl2 .tg-ico-arrow,
+    .tg__left_menu_item--lvl3 .tg__left_menu_item_text,
+    .tg__left_menu_item--lvl3 .tg-ico-arrow,
+    .tg__one_game_team,
+    .tg__one_game,
+    .coupon_sport_name_container,
+    .stake_item_panel {
+        color: ${c.primaryTxt} !important;
+    }
+    .tg__one_game {
+        border-color: ${c.singleGameBg} !important;
+    }
+    
+    .tg__left_menu_item--lvl1 {
+        border-color: ${c.leftMenuLevel_ABg} !important; 
+    }
+    .tg__left_menu_item--lvl2 {
+        border-color: ${c.leftMenuLevel_BBg} !important; 
+    }
+    .tg__left_menu_item--lvl3 {
+        border-color: ${c.leftMenuLevel_CBg} !important; 
+    }
+
+    .tg--coupon-container .body_panel{
+        background: ${c.primaryBg} !important;
+        border: 2px solid !important;
+        border-color: ${c.betSlipBg} !important;
+    }
+    .tg__coupon {
+        background: transparent !important;
+        color: ${c.primaryTxt} !important;
+    }
+    .stakes_panel{
+        padding: 0 10px;
+    }
+    .stake_item_panel {
+        border-top: 0 !important;
+        border-color: ${c.betSlipStakeBg} !important;
+    }
+
+    .tg__btn,
+    .l_od,
+    .l_od_empty,
+    .paperView .component_odd_empty,
+    .paperView .component_odd,
+    .paperView .component_odd.selectedOdd{
+        background: transparent !important;
+        transform: skew(-10deg, 0);
+        border-top: 2px solid !important;
+        border-left: 2px solid !important;
+        border-color: ${c.oddBg} !important; 
+        color: ${c.primaryTxt} !important;   
+    }
+    .l_od:hover,
+    .l_od.selectedOdd,
+    .tg__btn-ternary {
+        border-color: ${c.brandBg} !important;  
+        color: ${c.primaryTxt} !important;   
+    }
+
+    `
+      : ``
+    }
   
   .paperView .es__home_bet_header{
     background: ${c.headerG};
@@ -1169,6 +1274,12 @@ function createCss(c) {
     border-radius: ${c.buttonBorderRadiusVal}px;
  }
 
+
+ .sportHeaderPane,
+ #header_fix,
+ .tg__footer {
+    display: none !important;
+ }
   
   `;
   style.innerHTML = css;

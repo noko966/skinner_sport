@@ -31,7 +31,8 @@ class Skinner {
     this.generateConfigBorderRadius("borderRadius", "0");
     this.generateConfigBorderRadius("inputBorderRadius", "0");
     this.generateConfigBorderRadius("buttonBorderRadius", "0");
-    this.generateConfigCheckBox("solidView");
+    this.generateConfigCheckBox("retroView");
+    this.generateConfigCheckBox("futureView");
 
     this.modifyKey = this.modifyKey.bind(this);
 
@@ -176,7 +177,7 @@ class Skinner {
       this.skin[_nameG] = this.skin[_nameBg];
       if (this.skin[_isCustomNameTxt]) {
         this.skin[_nameTxt] = this.skin[_customNameTxt];
-        this.skin[_nameTxt2] = tinycolor(this.skin[_customNameTxt]).lighten(20).toString()
+        this.skin[_nameTxt2] = this.skin[_nameTxt];
       } else {
         this.skin[_nameTxt] = guessVisibleColor(this.skin[_nameBg]);
         this.skin[_nameTxt2] =
@@ -203,7 +204,7 @@ class Skinner {
       this.skin[_nameBgL] = tinycolor(this.skin[_nameBg]).lighten(3).toString();
       this.skin[_nameBgD] = tinycolor(this.skin[_nameBg]).darken(3).toString();
       if (this.skin[_isGradient]) {
-          this.skin[_nameG] = `linear-gradient(0deg, ${this.skin[_nameBg]} 0%, ${this.skin[_nameBg_g]} 100%)`;
+        this.skin[_nameG] = `linear-gradient(0deg, ${this.skin[_nameBg]} 0%, ${this.skin[_nameBg_g]} 100%)`;
       }
     } else {
       this.skin[_nameBg] = _color ? this.skin[_fallback + _color] : this.skin[_fallbackBg2];
@@ -211,7 +212,7 @@ class Skinner {
 
       if (this.skin[_isCustomFallbackTxt]) {
         this.skin[_nameTxt] = this.skin[_customFallbackTxt];
-        this.skin[_nameTxt2] = tinycolor(this.skin[_customFallbackTxt]).lighten(20).toString()
+        this.skin[_nameTxt2] = this.skin[_nameTxt]
       } else {
         this.skin[_nameTxt] = guessVisibleColor(this.skin[_nameBg]);
         this.skin[_nameTxt2] =
@@ -220,29 +221,17 @@ class Skinner {
           tinycolor(this.skin[_nameTxt]).darken(20).toString();
       }
 
-      this.skin[_nameBg2] = this.skin[_isNameDark] ?
+      this.skin[_nameBg2] = this.skin[_isFallbackDark] ?
         tinycolor(this.skin[_nameBg]).darken(6).toString() :
         tinycolor(this.skin[_nameBg]).lighten(6).toString();
-      this.skin[_nameBg3] = this.skin.isWidgetBgDark ?
-        tinycolor(this.skin[_nameBg]).darken(9).toString() :
-        tinycolor(this.skin[_nameBg]).lighten(9).toString();
-      this.skin[_nameBgHov] = this.skin.isWidgetBgDark ?
-        tinycolor(this.skin[_nameBg]).darken(2).toString() :
-        tinycolor(this.skin[_nameBg]).lighten(2).toString();
-      this.skin[_nameBg2Hov] = this.skin.isWidgetBgDark ?
-        tinycolor(this.skin[_nameBg]).darken(7).toString() :
-        tinycolor(this.skin[_nameBg]).lighten(7).toString();
-      this.skin[_nameBg3Hov] = this.skin.isWidgetBgDark ?
-        tinycolor(this.skin[_nameBg]).darken(2).toString() :
-        tinycolor(this.skin[_nameBg]).lighten(2).toString();
-      this.skin[_nameBgL] = tinycolor(this.skin[_nameBg]).lighten(3).toString();
-      this.skin[_nameBgD] = tinycolor(this.skin[_nameBg]).darken(3).toString();
+      this.skin[_nameBgL] = tinycolor(this.skin[_nameBg]).lighten(8).toString();
+      this.skin[_nameBgD] = tinycolor(this.skin[_nameBg]).darken(8).toString();
 
 
       if (this.skin[_isFallBackGradient]) {
-        this.skin[_nameG] = _color ? 
-        `linear-gradient(0deg, ${this.skin[_fallback + _color]} 0%, ${this.skin[_fallbackBg_g]} 100%)` : 
-        `linear-gradient(0deg, ${this.skin[_fallbackBg2]} 0%, ${this.skin[_fallbackBg_g]} 100%)`
+        this.skin[_nameG] = _color ?
+          `linear-gradient(0deg, ${this.skin[_fallback + _color]} 0%, ${this.skin[_fallbackBg_g]} 100%)` :
+          `linear-gradient(0deg, ${this.skin[_fallbackBg2]} 0%, ${this.skin[_fallbackBg_g]} 100%)`
       }
     }
   }
@@ -267,7 +256,7 @@ class Skinner {
     this.generateColorLogick("odd", "primary", "Bg");
     this.generateColorLogick("header", "widget", "Bg");
     this.generateColorLogick("betSlip", "widget", "Bg");
-    this.generateColorLogick("betSlipStake", "betSlip");
+    this.generateColorLogick("betSlipStake", "widget");
     this.generateColorLogick("betSlipInput", "betSlip");
     this.generateColorLogick("betSlipButton", "odd");
     this.generateColorLogick("showMore", "primary", "Bg");
@@ -284,7 +273,6 @@ class Skinner {
     this.generateColorLogick("leftMenuLevel_C", "widget");
     this.generateBorderRadiusLogick("inputBorderRadius", "borderRadius");
     this.generateBorderRadiusLogick("buttonBorderRadius", "borderRadius");
-
   }
 
   modifyControls(name) {
@@ -946,11 +934,19 @@ class Skinner {
       }
     );
 
-    this.solidView = this.createCheckboxControl(
-      "solid view",
+    this.retroView = this.createCheckboxControl(
+      "retro view",
       this.skinnerContainer,
       (e) => {
-        this.modifyKey("isSolidView", e.target.checked);
+        this.modifyKey("isRetroView", e.target.checked);
+      }
+    );
+
+    this.retroView = this.createCheckboxControl(
+      "future view",
+      this.skinnerContainer,
+      (e) => {
+        this.modifyKey("isFutureView", e.target.checked);
       }
     );
 
@@ -1307,9 +1303,9 @@ head.appendChild(style);
 
 let _createJs = window.createJs ? window.createJs : null;
 
-var s = new Skinner(createCss, _createJs);
+var SkinnerInstance = new Skinner(createCss, _createJs);
 
-s.init();
+SkinnerInstance.init();
 
 function addActiveClassToNavigation() {
   let nav = document.querySelectorAll(".nik_skinner_link");

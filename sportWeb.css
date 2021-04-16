@@ -1,18 +1,21 @@
 
     /* - - - - Primary - - - - */
+
+    body,
     .tg_bg,
     .tg__result_item,
     .tg__live_filter_item {
-        background-color: #161616;
+        background-color: #063503;
         color: #fff
     }
     .tg__left_menu_item,
     .live_menu_item_left,
     .live_menu_item_left .tg--left_live_odds,
-    .tg__one_game {
-        border-color:#161616;
+    .tg__one_game,
+    .paperView .champ_list:last-child {
+        border-color:#063503;
     }
-    
+
     .tg__submenu__item {
         color: #cccccc;
     }
@@ -22,16 +25,19 @@
     }
     
     /* - - - - Widget - - - - - */
-    .tg_widget_bg,
     .tg__live_list_header {
-        background-color: #2f2f2f;
+        background-color: #0b6506;
         color: #fff;
     }
 
     /* - - - - Left Menu Level 1 - - - - */
     .tg__left_menu_item--lvl1 {
-        background: #2f2f2f;
+        background: #0b6506;
         color: #fff;
+    }
+    .tg__left_menu_item--lvl1 .tg__left_menu_item_text,
+    .tg__left_menu_item--lvl1  .tg-ico-arrow {
+        color: #cccccc;
     }
     
     .ss__step_slider .ss__slider,
@@ -42,13 +48,27 @@
     /* - - - - Left Menu Level 2 - - - - */
     .tg__left_menu_item--lvl2,
     .tg_bet_history_order_row_sub {
-        background: #2f2f2f;
+        background: #0e8208;
         color: #fff;
+    }
+    .tg__left_menu_item--lvl2 .tg__left_menu_item_text,
+    .tg__left_menu_item--lvl2  .tg-ico-arrow {
+        color: #cccccc;
     }
     
     /* africanView */
     .africanView .SBhead {
-        background: #2f2f2f;
+        background: #0b6506;
+        color: #fff;
+    }
+
+    .africanView .gameContentTitle {
+        background: #063503;
+        color: #fff;
+    }
+
+    .africanView .champCont{
+        background: #0b6506;
         color: #fff;
     }
 
@@ -56,17 +76,33 @@
     .tg__left_menu_item--lvl3,
     .tg__list_row_heading,
     .tg_bet_history_order_row_sub:nth-child(even) {
-        background: #2f2f2f;
+        background: #0e8208;
         color: #fff;
+    }
+    .tg__left_menu_item--lvl3 .tg__left_menu_item_text,
+    .tg__left_menu_item--lvl3  .tg-ico-arrow {
+        color: #cccccc;
     }
     
     /* - - - - Passive Tab - - - - */
-    .tab_selector,
+    .tab_selector {
+        background: #0e8208;
+        color: #cccccc;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
     .tab_cupon {
-        background: #2f2f2f;
+        background: #0e8208;
+        color: #cccccc;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    .tab_cupon.tab_selected,
+    .tab_cupon:hover {
+        background: #0b6506;
         color: #fff;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
     }
 
     /* - - - - Active Tab - - - - */
@@ -76,24 +112,25 @@
     .tg_input,
     .tg_subheader_btn,
     .tg_live_center-wrapper .selectorWrapper,
-    .tg__live_filter_item.checked,
-    .tab_cupon.tab_selected,
-    .tab_cupon:hover {
-      background: #3e3e3e;
+    .tg__live_filter_item.checked{
+      background: #0b6506;
       color: #fff;
     }
 
     /* - - - - Header - - - - */
     .gameContentTitle,
     .tg__result_group_heading {
-        background: #2f2f2f;
+        background: #0b6506;
         color: #fff;
     }
     
     /* africanView */
     .africanView .tg--home2__stakeItem {
-        background: #2f2f2f;
+        background: #0e8208;
         color: #fff;    
+    }
+    .africanView .champCont {
+        margin: 0px;
     }
 
     /* - - - - SubHeader - - - - */
@@ -110,12 +147,13 @@
     .tg__modal_header,
     .tg__modal_heading,
     .tg_bet_history_order_row {
-        background: #161616;
+        background: #063503;
         color: #fff;
     }
     .tg__home_game_heading {
-        background: #161616;
+        background: #063503;
         color: #cccccc;
+        border-top: 1px solid #0b6506;
     }
 
     /* - - - - Single Game - - - - */
@@ -130,7 +168,11 @@
     .tg_popup_body_static,
     .tg__modal,
     .tg_bet_history_order_row:nth-child(even) {
-        background: #2f2f2f;
+        background: #0b6506;
+        color: #cccccc;
+    }
+
+    .tg__one_game_team {
         color: #fff;
     }
     
@@ -144,19 +186,20 @@
     /* - - - - Odd - - - - */
     .l_od,
     .l_od_empty {
-        background: #161616;
+        background: #063503;
         color: #fff;
     }
 
     /* - - - - Show More - - - - */
     .tg__more {
-        background: #161616;
+        background: #063503;
         color: #fff;
     }
 
     /* - - - - Betslip Header - - - - */
-    .tg__block_header {
-        background: #2f2f2f;
+    .tg__block_header,
+    .tg__info_panel .selectorWrapper {
+        background: #0e8208;
         color: #fff;
     }
 
@@ -192,40 +235,53 @@
     }
 
     /* - - - - BetSlip - - - - */
-    .tg__coupon .tg--coupon-bg {
-        background: #3e3e3e;
+    .tg__coupon {
+        background: #0b6506;
         color: #cccccc
     }
     .stake_item_panel {
-      background: #3e3e3e;
+      background: #0e8208;
       color: #cccccc;
-      border-color: #161616;
+      border-color: #063503;
     }
     .coupon_sport_name_container {
       color: #fff;
     }
     
     .tg__btn-coupon {
-        background: #252525;
+        background: #095205;
         color: #fff;
     }
     
-    .tg--cashout-body, .tg__cashout_popup, .booking_number {
-        background-color: #3e3e3e;
+    .tg--cashout-body, .tg__cashout_popup, .booking_number, .betchecker, .scout_panel, .bet_generator_wrapper  {
+        background: #0b6506;
         color: #fff;
     }
     
     /* - - - - DropDown - - - - */
     .tg__input,
-    .tg__input-ico,
     .tg__info_panel .tg__dropdown_control,
     .tg__dropdown__item,
     .sportRightPane .tg_input {
-        background: #2f2f2f;
+        background: #063503;
+        color: #fff;
+        border-radius: 0px;
+    }
+    .sportRightPane .tg_input::placeholder{
+        color: #cccccc;
+    }
+    .tg__search_cont .tg__input{
+        background: #0b6506;
+        color: #fff;
+    }
+    .tg__search_cont .tg__input::placeholder{
+        color: #cccccc;
+    }
+    .tg__search_cont .tg__input-ico{
         color: #fff;
     }
     .tg__info_panel .tg_input_coupon_amount {
-        background: #2f2f2f;
+        background: #0e8208;
         color: #fff;
       }
     
@@ -233,16 +289,10 @@
         background: undefined;
     }
 
-    /* - - - - Sections - - - - */
-    .tg__info_panel {
-        background: #2f2f2f;
-        color: #fff;
-    }
-
     /* - - - - Input - - - - */
     .tg__input {
-      background: undefined;
-      color: undefined;
+      background: #0b6506;
+      color: #fff;
     }
 
     /* - - - - Accent - - - - */
@@ -256,6 +306,11 @@
     .tg__btn-coupon:hover {
         color: #ffb700;
     }
+
+    .es__stepped_slider_cont {
+        background: #063503;
+        color: #fff;
+    }
     
     /* Colors we can't change */
     .tg__badge_live {
@@ -263,13 +318,56 @@
         color: #fff;
     }
 
-      
-  /*make tournament icons visible on bright background*/
-    [class^='digi_tournament_']:before,
-    [class*=' digi_tournament_']:before {
-      border-radius: 3px;
-      border: 2px solid #464646;
-      box-sizing: content-box;
-      background-repeat: no-repeat;
-      background-color: #3e3e3e;
+    .tg--coupon-container.tg--coupon-single-tab .tab_selector_active {
+        background: transparent !important;
+        color: #fff;
+    }
+
+    
+
+    
+
+    
+  
+  .paperView .es__home_bet_header{
+    background: #0b6506;
+    color: #fff;
   }
+  /*paper view odds*/
+ .paperView .component_odd_empty,
+ .paperView .component_odd,
+ .paperView .component_odd.selectedOdd{
+     background: #063503;
+     color: #fff;
+ }
+ .paperView .component_odd:hover,
+ .paperView .component_odd_empty:hover,
+ .paperView .EUodds:hover,
+ .paperView .EUodds.selectedOdd,
+ .paperView .component_odd.selectedOdd {
+     background: #ffc533;
+     color: #000;
+ }
+ .showC {
+    background: #0b6506;
+    color: #fff;
+ }
+
+
+ /*border radius*/
+ .tg__btn,
+ .l_od, .l_od_empty,
+ .paperView .component_odd_empty,
+ .paperView .component_odd,
+ .paperView .component_odd.selectedOdd{
+    border-radius: 0px;
+ }
+
+
+ .sportHeaderPane,
+ #header_fix,
+ .tg__footer {
+    display: none !important;
+ }
+  
+  
