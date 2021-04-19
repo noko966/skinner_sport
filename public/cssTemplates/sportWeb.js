@@ -752,10 +752,18 @@ function createCss(c) {
     }
     
     .ss__step_slider .ss__slider,
-    .ss__step_slider .ss__ruller > div{
-        background: ${c.widgetTxt};
+    .ss__step_slider .ss__ruller > div {
+        background: ${c.widgetTxt2};
     }
-
+    
+    .ss__step_slider .ss__slider:hover {
+        color: ${c.accentBg};
+    }
+    
+    .ss__step_slider .ss__ruller > .off {
+        background: ${c.widgetBg};
+    }
+    
     /* - - - - Left Menu Level 2 - - - - */
     .tg__left_menu_item--lvl2,
     .tg_bet_history_order_row_sub {
@@ -926,6 +934,14 @@ function createCss(c) {
     .tg_popup_body_static .tab_selector_active {
         border-bottom: 2px solid ${c.accentBg};
     }
+    
+    .tg-ico-fav.active {
+        color: ${c.accentBg};
+    }
+    
+    .tg__fix_btn.checked, .tg__fix_btn:hover {
+        color: ${c.accentBg};
+    }
 
     /* - - - - Brand - - - - */
     .l_od:hover,
@@ -940,7 +956,9 @@ function createCss(c) {
     }
     
     /* africanView */
-    .africanView .tg--home2__stakeItem:hover {
+    .africanView .tg--home2__stakeItem:hover,
+    .africanView .active .tg--home2__stakeItem,
+    .africanView .tg--home2__stakeItem.stItem_active {
         background: ${c.brandG};
         color: ${c.brandTxt};
     }
