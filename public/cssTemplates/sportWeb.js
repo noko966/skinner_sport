@@ -1298,6 +1298,17 @@ function createCss(c) {
  .tg__footer {
     display: none !important;
  }
+
+/*esport*/
+#e-sport-root .esp_layout_main{
+    background: ${c.primaryBg} !important;
+    color: ${c.primaryTxt} !important;
+}
+#e-sport-root .esp_main_header{
+    background: ${c.headerG} !important;
+    color: ${c.headerTxt} !important;
+}
+
   
   `;
   style.innerHTML = css;

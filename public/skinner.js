@@ -295,8 +295,11 @@ class Skinner {
     this[_nameBg].checkBox.checked = this.skin[_isName];
     this[_nameBg].checkBox2.checked = this.skin[_isGradient];
 
-    this[_nameBg].picker.value = this.skin[_nameBg];
-    this[_nameBg].picker2.value = this.skin[_nameBg_g];
+    // this[_nameBg].picker.value = this.skin[_nameBg];
+    // this[_nameBg].picker2.value = this.skin[_nameBg_g];
+
+    this[_nameBg].picker.style.background = this.skin[_nameBg];
+    this[_nameBg].picker2.style.background = this.skin[_nameBg_g];
 
     this.skin[_isName] ?
       (this[_nameBg].picker.disabled = false) :
@@ -328,8 +331,6 @@ class Skinner {
   }
 
   applyInitialValues() {
-    this.primaryBg.picker.value = this.skin.primaryBg;
-    this.primaryBg.checkBoxIsDark.checked = this.skin.isDark;
 
     this.modifyControls("widget");
     this.modifyControls("brand");
@@ -366,7 +367,7 @@ class Skinner {
       null,
       null,
       (e) => {
-        this.modifyKey("primaryBg", e.target.value);
+        this.modifyKey("primaryBg", e.detail.color.hex);
       },
       null,
       (e) => {
@@ -384,10 +385,10 @@ class Skinner {
         this.modifyKey("isWidgetGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("widgetBg", e.target.value);
+        this.modifyKey("widgetBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("widgetBg_g", e.target.value);
+        this.modifyKey("widgetBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isWidgetBgDark", e.target.checked);
@@ -396,7 +397,7 @@ class Skinner {
         this.modifyKey("isCustomWidgetTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customWidgetTxt", e.target.value);
+        this.modifyKey("customWidgetTxt", e.detail.color.hex);
       }
     );
 
@@ -410,10 +411,10 @@ class Skinner {
         this.modifyKey("isAccentGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("accentBg", e.target.value);
+        this.modifyKey("accentBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("accentBg_g", e.target.value);
+        this.modifyKey("accentBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isAccentBgDark", e.target.checked);
@@ -422,7 +423,7 @@ class Skinner {
         this.modifyKey("isCustomAccentTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customAccentTxt", e.target.value);
+        this.modifyKey("customAccentTxt", e.detail.color.hex);
       }
     );
 
@@ -436,10 +437,10 @@ class Skinner {
         this.modifyKey("isBrandGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("brandBg", e.target.value);
+        this.modifyKey("brandBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("brandBg_g", e.target.value);
+        this.modifyKey("brandBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isBrandBgDark", e.target.checked);
@@ -448,7 +449,7 @@ class Skinner {
         this.modifyKey("isCustomBrandTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customBrandTxt", e.target.value);
+        this.modifyKey("customBrandTxt", e.detail.color.hex);
       }
     );
 
@@ -462,17 +463,17 @@ class Skinner {
         this.modifyKey("isInputGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("inputBg", e.target.value);
+        this.modifyKey("inputBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("inputBg_g", e.target.value);
+        this.modifyKey("inputBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomInputTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customInputTxt", e.target.value);
+        this.modifyKey("customInputTxt", e.detail.color.hex);
       }
     );
 
@@ -486,17 +487,17 @@ class Skinner {
         this.modifyKey("isWidgetInputGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("widgetInputBg", e.target.value);
+        this.modifyKey("widgetInputBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("widgetInputBg_g", e.target.value);
+        this.modifyKey("widgetInputBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomWidgetInputTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customWidgetInputTxt", e.target.value);
+        this.modifyKey("customWidgetInputTxt", e.detail.color.hex);
       }
     );
 
@@ -510,17 +511,17 @@ class Skinner {
         this.modifyKey("isOddGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("oddBg", e.target.value);
+        this.modifyKey("oddBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("oddBg_g", e.target.value);
+        this.modifyKey("oddBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomOddTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customOddTxt", e.target.value);
+        this.modifyKey("customOddTxt", e.detail.color.hex);
       }
     );
 
@@ -534,17 +535,17 @@ class Skinner {
         this.modifyKey("isShowMoreGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("showMoreBg", e.target.value);
+        this.modifyKey("showMoreBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("showMoreBg_g", e.target.value);
+        this.modifyKey("showMoreBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomShowMoreTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customShowMoreTxt", e.target.value);
+        this.modifyKey("customShowMoreTxt", e.detail.color.hex);
       }
     );
 
@@ -558,17 +559,17 @@ class Skinner {
         this.modifyKey("isHeaderGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("headerBg", e.target.value);
+        this.modifyKey("headerBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("headerBg_g", e.target.value);
+        this.modifyKey("headerBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomHeaderTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customHeaderTxt", e.target.value);
+        this.modifyKey("customHeaderTxt", e.detail.color.hex);
       }
     );
 
@@ -582,10 +583,10 @@ class Skinner {
         this.modifyKey("isBetSlipGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("betSlipBg", e.target.value);
+        this.modifyKey("betSlipBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("betSlipBg_g", e.target.value);
+        this.modifyKey("betSlipBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isBetSlipBgDark", e.target.checked);
@@ -594,7 +595,7 @@ class Skinner {
         this.modifyKey("isCustomBetSlipTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customBetSlipTxt", e.target.value);
+        this.modifyKey("customBetSlipTxt", e.detail.color.hex);
       }
     );
 
@@ -608,10 +609,10 @@ class Skinner {
         this.modifyKey("isBetSlipStakeGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("betSlipStakeBg", e.target.value);
+        this.modifyKey("betSlipStakeBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("betSlipStakeBg_g", e.target.value);
+        this.modifyKey("betSlipStakeBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isBetSlipStakeBgDark", e.target.checked);
@@ -620,7 +621,7 @@ class Skinner {
         this.modifyKey("isCustomBetSlipStakeTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customBetSlipStakeTxt", e.target.value);
+        this.modifyKey("customBetSlipStakeTxt", e.detail.color.hex);
       }
     );
 
@@ -634,10 +635,10 @@ class Skinner {
         this.modifyKey("isBetSlipInputGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("betSlipInputBg", e.target.value);
+        this.modifyKey("betSlipInputBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("betSlipInputBg_g", e.target.value);
+        this.modifyKey("betSlipInputBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isBetSlipInputBgDark", e.target.checked);
@@ -646,7 +647,7 @@ class Skinner {
         this.modifyKey("isCustomBetSlipInputTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customBetSlipInputTxt", e.target.value);
+        this.modifyKey("customBetSlipInputTxt", e.detail.color.hex);
       }
     );
 
@@ -660,10 +661,10 @@ class Skinner {
         this.modifyKey("isBetSlipButtonGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("betSlipButtonBg", e.target.value);
+        this.modifyKey("betSlipButtonBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("betSlipButtonBg_g", e.target.value);
+        this.modifyKey("betSlipButtonBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isBetSlipButtonBgDark", e.target.checked);
@@ -672,7 +673,7 @@ class Skinner {
         this.modifyKey("isCustomBetSlipButtonTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customBetSlipButtonTxt", e.target.value);
+        this.modifyKey("customBetSlipButtonTxt", e.detail.color.hex);
       }
     );
 
@@ -686,17 +687,17 @@ class Skinner {
         this.modifyKey("isActiveTabGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("activeTabBg", e.target.value);
+        this.modifyKey("activeTabBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("activeTabBg_g", e.target.value);
+        this.modifyKey("activeTabBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomActiveTabTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customActiveTabTxt", e.target.value);
+        this.modifyKey("customActiveTabTxt", e.detail.color.hex);
       }
     );
 
@@ -710,17 +711,17 @@ class Skinner {
         this.modifyKey("isTabGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("tabBg", e.target.value);
+        this.modifyKey("tabBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("tabBg_g", e.target.value);
+        this.modifyKey("tabBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomTabTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customTabTxt", e.target.value);
+        this.modifyKey("customTabTxt", e.detail.color.hex);
       }
 
     );
@@ -735,17 +736,17 @@ class Skinner {
         this.modifyKey("isSubHeaderGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("subHeaderBg", e.target.value);
+        this.modifyKey("subHeaderBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("subHeaderBg_g", e.target.value);
+        this.modifyKey("subHeaderBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomSubHeaderTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customSubHeaderTxt", e.target.value);
+        this.modifyKey("customSubHeaderTxt", e.detail.color.hex);
       }
     );
 
@@ -759,17 +760,17 @@ class Skinner {
         this.modifyKey("isPopupHeaderGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("popupHeaderBg", e.target.value);
+        this.modifyKey("popupHeaderBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("popupHeaderBg_g", e.target.value);
+        this.modifyKey("popupHeaderBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomPopupHeaderTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customPopupHeaderTxt", e.target.value);
+        this.modifyKey("customPopupHeaderTxt", e.detail.color.hex);
       }
     );
 
@@ -783,17 +784,17 @@ class Skinner {
         this.modifyKey("isPopupGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("popupBg", e.target.value);
+        this.modifyKey("popupBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("popupBg_g", e.target.value);
+        this.modifyKey("popupBg_g", e.detail.color.hex);
       },
       null,
       (e) => {
         this.modifyKey("isCustomPopupTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customPopupTxt", e.target.value);
+        this.modifyKey("customPopupTxt", e.detail.color.hex);
       }
     );
 
@@ -807,10 +808,10 @@ class Skinner {
         this.modifyKey("isSingleGameGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("singleGameBg", e.target.value);
+        this.modifyKey("singleGameBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("singleGameBg_g", e.target.value);
+        this.modifyKey("singleGameBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isSingleGameBgDark", e.target.checked);
@@ -819,7 +820,7 @@ class Skinner {
         this.modifyKey("isCustomSingleGameTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customSingleGameTxt", e.target.value);
+        this.modifyKey("customSingleGameTxt", e.detail.color.hex);
       }
     );
 
@@ -833,10 +834,10 @@ class Skinner {
         this.modifyKey("isLeftMenuLevel_AGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("leftMenuLevel_ABg", e.target.value);
+        this.modifyKey("leftMenuLevel_ABg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("leftMenuLevel_ABg_g", e.target.value);
+        this.modifyKey("leftMenuLevel_ABg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isLeftMenuLevel_ABgDark", e.target.checked);
@@ -845,7 +846,7 @@ class Skinner {
         this.modifyKey("isCustomLeftMenuLevel_ATxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customLeftMenuLevel_ATxt", e.target.value);
+        this.modifyKey("customLeftMenuLevel_ATxt", e.detail.color.hex);
       }
     );
 
@@ -859,10 +860,10 @@ class Skinner {
         this.modifyKey("isLeftMenuLevel_BGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("leftMenuLevel_BBg", e.target.value);
+        this.modifyKey("leftMenuLevel_BBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("leftMenuLevel_BBg_g", e.target.value);
+        this.modifyKey("leftMenuLevel_BBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isLeftMenuLevel_BBgDark", e.target.checked);
@@ -871,7 +872,7 @@ class Skinner {
         this.modifyKey("isCustomLeftMenuLevel_BTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customLeftMenuLevel_BTxt", e.target.value);
+        this.modifyKey("customLeftMenuLevel_BTxt", e.detail.color.hex);
       }
     );
 
@@ -885,10 +886,10 @@ class Skinner {
         this.modifyKey("isLeftMenuLevel_CGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("leftMenuLevel_CBg", e.target.value);
+        this.modifyKey("leftMenuLevel_CBg", e.detail.color.hex);
       },
       (e) => {
-        this.modifyKey("leftMenuLevel_CBg_g", e.target.value);
+        this.modifyKey("leftMenuLevel_CBg_g", e.detail.color.hex);
       },
       (e) => {
         this.modifyKey("isLeftMenuLevel_CBgDark", e.target.checked);
@@ -897,7 +898,7 @@ class Skinner {
         this.modifyKey("isCustomLeftMenuLevel_CTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customLeftMenuLevel_CTxt", e.target.value);
+        this.modifyKey("customLeftMenuLevel_CTxt", e.detail.color.hex);
       }
     );
 
@@ -950,23 +951,6 @@ class Skinner {
       }
     );
 
-
-    // this.makeTournamentBackground = this.createRangeControl(
-    //   "tournaments bg",
-    //   this.skinnerContainer,
-    //   (e) => {
-    //     this.modifyKey("makeTournamentBackground", e.target.checked);
-    //   },
-    //   "range"
-    // );
-    // this.makeMenuTabBackground = this.createRangeControl(
-    //   "Submenu tab bg",
-    //   this.skinnerContainer,
-    //   (e) => {
-    //     this.modifyKey("makeMenuTabBackground", e.target.checked);
-    //   },
-    //   "checkbox"
-    // );
   }
 
   createControlsWrapper() {
@@ -1204,12 +1188,12 @@ class Skinner {
       checkBoxIsDark.addEventListener("change", isDarkCallback);
     }
 
-    let picker = document.createElement("input");
-    picker.type = "color";
-    picker.className = "nik_skinner_control_group_picker";
-    picker.addEventListener("input", pickerCallback);
+    let pickerEl = document.createElement("input");
+    let p = new ColorPicker(pickerEl);
+    pickerEl.className = "nik_skinner_control_group_picker";
+    pickerEl.addEventListener("colorChange", pickerCallback);
 
-    let picker2, checkBox2;
+    let picker2El, checkBox2, p2;
     if (gradientCallback) {
       checkBox2 = document.createElement("input");
       checkBox2.type = "checkbox";
@@ -1217,15 +1201,14 @@ class Skinner {
       checkBox2.id = label + "_g";
       checkBox2.addEventListener("change", gradientCallback);
 
-      picker2 = document.createElement("input");
-      picker2.type = "color";
-      picker2.className = "nik_skinner_control_group_picker";
-      wrapper.appendChild(picker2);
-      picker2.addEventListener("input", picker2Callback);
+      picker2El = document.createElement("input");
+      p2 = new ColorPicker(picker2El);
+      picker2El.className = "nik_skinner_control_group_picker";
+      wrapper.appendChild(picker2El);
+      picker2El.addEventListener("colorChange", picker2Callback);
     }
 
-    let pickerTxtChb;
-    let pickerTxtColor;
+    let pickerTxtChb, pickerTxtColorEl, p3;
     if (isCustomTextCallback && picker3Callback) {
       pickerTxtChb = document.createElement("input");
       pickerTxtChb.type = "checkbox";
@@ -1234,10 +1217,10 @@ class Skinner {
       pickerTxtChb.addEventListener("change", isCustomTextCallback);
 
 
-      pickerTxtColor = document.createElement("input");
-      pickerTxtColor.type = "color";
-      pickerTxtColor.className = "nik_skinner_control_group_picker";
-      pickerTxtColor.addEventListener("input", picker3Callback);
+      pickerTxtColorEl = document.createElement("input");
+      p3 = new ColorPicker(pickerTxtColorEl);
+      pickerTxtColorEl.className = "nik_skinner_control_group_picker";
+      pickerTxtColorEl.addEventListener("colorChange", picker3Callback);
     }
 
     let isEnabledWrapper = document.createElement("div");
@@ -1270,28 +1253,28 @@ class Skinner {
     if (gradientCallback) {
       isGradientEnabledWrapper.appendChild(checkBox2);
     }
-    mainColorWrapper.appendChild(picker);
+    mainColorWrapper.appendChild(pickerEl);
     if (gradientCallback) {
-      secondaryColorWrapper.appendChild(picker2);
+      secondaryColorWrapper.appendChild(picker2El);
     }
     if (isDarkCallback) {
       invertWrapper.appendChild(checkBoxIsDark);
     }
     if (isCustomTextCallback && picker3Callback) {
       isCustomTextWrapper.appendChild(pickerTxtChb);
-      customTextWrapper.appendChild(pickerTxtColor);
+      customTextWrapper.appendChild(pickerTxtColorEl);
     }
 
     parent.appendChild(wrapper);
 
     return {
-      picker,
-      picker2,
+      picker: pickerEl,
+      picker2: picker2El,
       checkBox,
       checkBox2,
       checkBoxIsDark,
       pickerTxtChb,
-      pickerTxtColor,
+      pickerTxtColor: pickerTxtColorEl,
     };
   }
 }

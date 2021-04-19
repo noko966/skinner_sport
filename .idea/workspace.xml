@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19d2be5d-aef9-41e7-95a3-a8778364204d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/picker/colr_pickr.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/picker/colr_pickr.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/cssTemplates/sportWeb.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/cssTemplates/sportWeb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportWeb.css" beforeDir="false" afterPath="$PROJECT_DIR$/sportWeb.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/skinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/skinner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/skinner2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sportMobile.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sportMobile.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sportRules.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sportRules.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/sportWeb.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sportWeb.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +41,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618573140101</updated>
-      <workItem from="1618573141170" duration="6527000" />
+      <workItem from="1618573141170" duration="6825000" />
     </task>
     <servers />
   </component>

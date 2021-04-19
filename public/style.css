@@ -304,22 +304,19 @@ body {
 
 
 /* width */
-.skinner_toolbox_wrapper::-webkit-scrollbar,
-html::-webkit-scrollbar {
+.skinner_toolbox_wrapper::-webkit-scrollbar {
     width: 5px;
 }
 
 /* Track */
-.skinner_toolbox_wrapper::-webkit-scrollbar-track,
-html::-webkit-scrollbar-track {
+.skinner_toolbox_wrapper::-webkit-scrollbar-track {
     background: rgba(255,255,255,0.4);
     background: transparent;
 
 }
 
 /* Handle */
-.skinner_toolbox_wrapper::-webkit-scrollbar-thumb,
-html::-webkit-scrollbar-thumb {
+.skinner_toolbox_wrapper::-webkit-scrollbar-thumb {
     background: #00aabe;
     border-radius: 4px;
     box-shadow: 0 1px 3px rgb(0 0 0 / 40%);
@@ -327,8 +324,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 /* Handle on hover */
-.skinner_toolbox_wrapper::-webkit-scrollbar-thumb:hover,
-html::-webkit-scrollbar-thumb:hover {
+.skinner_toolbox_wrapper::-webkit-scrollbar-thumb:hover {
     background: #11585d
 }
 
