@@ -138,6 +138,7 @@ body {
     height: 25px;
     cursor: pointer;
     transition: all 0.314s;
+    margin: 0;
 }
 
 .nik_skinner_control_group_checkbox:hover {
@@ -276,7 +277,7 @@ body {
 }
 
 .nik_skinner_header_control {
-    width: 60px;
+    width: 90px;
     flex-shrink: 0;
     padding: 5px 0;
     text-align: center;
@@ -294,14 +295,39 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
+    width: 90px;
     min-height: 50px;
     flex-shrink: 0;
     border-right: 1px solid #11585d;
     border-left: 1px solid #11585d;
-
+    position: relative;
 }
 
+.nik_skinner_control_group_checkbox_wrapper > input{
+    display: none;
+}
+
+.nik_skinner_control_group_checkbox_wrapper > .nik_skinner_control_group_checkbox_imitator{
+    width: 20px;
+    height: 20px;
+    display: block;
+    transition: all 0.314s;
+    background-color: transparent;
+    border: 2px solid #22da3e;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.nik_skinner_control_group_checkbox_wrapper > input:checked + .nik_skinner_control_group_checkbox_imitator{
+    background-color: #22da3e;
+}
+
+.nik_skinner_checkbox_wrapper-controls .nik_skinner_control_group_checkbox_wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 /* width */
 .skinner_toolbox_wrapper::-webkit-scrollbar {
