@@ -19,6 +19,8 @@ class Skinner {
     this.generateConfigColor("subHeader", "#161616");
     this.generateConfigColor("activeTab", "#333333");
     this.generateConfigColor("tab", "#2b2b2b");
+    this.generateConfigColor("sideBarActiveTab", "#333333");
+    this.generateConfigColor("sideBarTab", "#2b2b2b");
     this.generateConfigColor("singleGame", "#333333");
     this.generateConfigColor("odd", "#161616");
     this.generateConfigColor("showMore", "#242424");
@@ -157,6 +159,7 @@ class Skinner {
     let _upperCaseName = _name[0].toUpperCase() + _name.substring(1);
     let _isName = "is" + _upperCaseName + "Bg";
     let _isGradient = "is" + _upperCaseName + "Gradient";
+    let _isGradientInvert = "is" + _upperCaseName + "GradientInvert";
     let _isNameDark = "is" + _upperCaseName + "BgDark";
     let _isCustomNameTxt = "isCustom" + _upperCaseName + "Txt";
     let _customNameTxt = "custom" + _upperCaseName + "Txt";
@@ -204,7 +207,13 @@ class Skinner {
       this.skin[_nameBgL] = tinycolor(this.skin[_nameBg]).lighten(3).toString();
       this.skin[_nameBgD] = tinycolor(this.skin[_nameBg]).darken(3).toString();
       if (this.skin[_isGradient]) {
-        this.skin[_nameG] = `linear-gradient(0deg, ${this.skin[_nameBg]} 0%, ${this.skin[_nameBg_g]} 100%)`;
+        if(this.skin[_isGradientInvert]){
+          this.skin[_nameG] = `linear-gradient(0deg, ${this.skin[_nameBg_g]} 0%, ${this.skin[_nameBg]} 100%)`;
+        }
+        else{
+          this.skin[_nameG] = `linear-gradient(0deg, ${this.skin[_nameBg]} 0%, ${this.skin[_nameBg_g]} 100%)`;
+        }
+
       }
     } else {
       this.skin[_nameBg] = _color ? this.skin[_fallback + _color] : this.skin[_fallbackBg2];
@@ -264,6 +273,8 @@ class Skinner {
     this.generateColorLogick("widgetInput", "primary", "Bg");
     this.generateColorLogick("activeTab", "widget", "Bg");
     this.generateColorLogick("tab", "widget");
+    this.generateColorLogick("sideBarActiveTab", "activeTab", "Bg");
+    this.generateColorLogick("sideBarTab", "tab");
     this.generateColorLogick("subHeader", "primary", "Bg");
     this.generateColorLogick("popupHeader", "widget");
     this.generateColorLogick("popup", "widget", "Bg");
@@ -342,6 +353,8 @@ class Skinner {
     this.modifyControls("widgetInput");
     this.modifyControls("activeTab");
     this.modifyControls("tab");
+    this.modifyControls("sideBarActiveTab");
+    this.modifyControls("sideBarTab");
     this.modifyControls("subHeader");
     this.modifyControls("popupHeader");
     this.modifyControls("popup");
@@ -723,6 +736,55 @@ class Skinner {
       (e) => {
         this.modifyKey("customTabTxt", e.detail.color.hex);
       }
+
+    );
+
+    this.sideBarActiveTabBg = this.createControl(
+        "sideBarActiveTab",
+        this.skinnerContainer,
+        (e) => {
+          this.modifyKey("isSideBarActiveTabBg", e.target.checked);
+        },
+        (e) => {
+          this.modifyKey("isSideBarActiveTabGradient", e.target.checked);
+        },
+        (e) => {
+          this.modifyKey("sideBarActiveTabBg", e.detail.color.hex);
+        },
+        (e) => {
+          this.modifyKey("sideBarActiveTabBg_g", e.detail.color.hex);
+        },
+        null,
+        (e) => {
+          this.modifyKey("isCustomSideBarActiveTabTxt", e.target.checked);
+        },
+        (e) => {
+          this.modifyKey("customSideBarActiveTabTxt", e.detail.color.hex);
+        }
+    );
+
+    this.sideBarTabBg = this.createControl(
+        "sideBarTab",
+        this.skinnerContainer,
+        (e) => {
+          this.modifyKey("isSideBarTabBg", e.target.checked);
+        },
+        (e) => {
+          this.modifyKey("isSideBarTabGradient", e.target.checked);
+        },
+        (e) => {
+          this.modifyKey("sideBarTabBg", e.detail.color.hex);
+        },
+        (e) => {
+          this.modifyKey("sideBarTabBg_g", e.detail.color.hex);
+        },
+        null,
+        (e) => {
+          this.modifyKey("isCustomSideBarTabTxt", e.target.checked);
+        },
+        (e) => {
+          this.modifyKey("customSideBarTabTxt", e.detail.color.hex);
+        }
 
     );
 
@@ -1207,6 +1269,12 @@ class Skinner {
       wrapper.appendChild(picker2El);
       picker2El.addEventListener("colorChange", picker2Callback);
     }
+
+    let checkBoxInvertGradient = document.createElement("input");
+    checkBoxInvertGradient.type = "checkbox";
+    checkBoxInvertGradient.className = "nik_skinner_control_group_checkbox";
+    checkBoxInvertGradient.id = label + "_g_i";
+    checkBoxInvertGradient.addEventListener("change", gradientCallback);
 
     let pickerTxtChb, pickerTxtColorEl, p3;
     if (isCustomTextCallback && picker3Callback) {
