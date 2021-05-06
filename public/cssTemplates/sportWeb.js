@@ -486,6 +486,7 @@
 //     .tg__modal_book_bet .tg__border--color-akcent{
 //         border-color: ${c.brandBg};
 //     }
+
 //     .tg__modal_book_bet .tg-clr-akcent{
 //         color: ${c.brandBg};
 //     }
@@ -757,7 +758,7 @@ function createCss(c) {
     }
     
     .ss__step_slider .ss__slider:hover {
-        color: ${c.accentBg};
+        background: ${c.accentBg};
     }
     
     .ss__step_slider .ss__ruller > .off {
@@ -790,6 +791,16 @@ function createCss(c) {
         background: ${c.singleGameG};
         color: ${c.singleGameTxt};
     }
+    
+    .africanView .tg_left_tabs {
+        background: ${c.subHeaderG};
+        color: ${c.subHeaderTxt2};
+        border-bottom-color: ${c.accentBg};
+    }
+    
+    .africanView .tg_left_filter_tabs_active {
+        color: ${c.accentBg};
+    }
 
     /* - - - - Left Menu Level 3 - - - - */
     .tg__left_menu_item--lvl3,
@@ -810,6 +821,11 @@ function createCss(c) {
         border-top-left-radius: ${c.borderRadiusVal}px;
         border-top-right-radius: ${c.borderRadiusVal}px;
     }
+    
+     .sportLeftPane .tab_selector  {
+        background: ${c.sideBarTabG};
+        color: ${c.sideBarTabTxt};
+    } 
 
     .tab_cupon {
         background: ${c.tabG};
@@ -835,6 +851,11 @@ function createCss(c) {
       background: ${c.activeTabG};
       color: ${c.activeTabTxt};
     }
+    
+     .sportLeftPane .tab_selector.tab_selector_active  {
+        background: ${c.sideBarActiveTabG};
+        color: ${c.sideBarActiveTabTxt};
+    } 
 
     /* - - - - Header - - - - */
     .gameContentTitle,
@@ -901,6 +922,10 @@ function createCss(c) {
     .tg__one_game .maIcons {
         color: ${c.singleGameTxt2};
     }
+    
+    .posCombItem {
+      background: ${c.subHeaderG};
+    }
 
     /* - - - - Odd - - - - */
     .l_od,
@@ -926,9 +951,12 @@ function createCss(c) {
     .tg_sidebar_text_akcent,
     .liveGameSelected .liveSportNamesContainer,
     .left_menu_line_active .tg__left_menu_item_text,
-    .tg_widget_text_akcent,
-    .tg__coupon_square {
+    .tg_widget_text_akcent {
         color: ${c.accentBg};
+    }
+    
+    .tg-ico-cheque_redact.tg-clr-akcent2 {
+       color: ${c.accentBg};
     }
     
     .tg_popup_body_static .tab_selector_active {
@@ -987,6 +1015,24 @@ function createCss(c) {
         color: ${c.popupTxt};
     }
     
+    .tg_coin {
+        background: ${c.accentBg};
+        color: ${c.accentTxt};
+    }
+    
+     .tg__match_item_btn {
+         background: ${c.showMoreG};
+         color: ${c.showMoreTxt};
+     }
+     
+     .tg__modal_book_bet .tg__border--color-akcent{
+        border-color: ${c.accentBg};
+      }
+
+     .tg__modal_book_bet .tg-clr-akcent{
+        color: ${c.accentBg};
+     }
+    
     /* - - - - DropDown - - - - */
     .tg__input,
     .tg__info_panel .tg__dropdown_control,
@@ -1000,6 +1046,11 @@ function createCss(c) {
         color: ${c.widgetInputTxt2};
     }
     .tg__search_cont .tg__input{
+        background: ${c.inputG};
+        color: ${c.inputTxt};
+    }
+    .sportRightPaneRow .tg__dropdown_control,
+    .sportRightPaneRow .tg_subheader_btn {
         background: ${c.inputG};
         color: ${c.inputTxt};
     }
@@ -1035,17 +1086,50 @@ function createCss(c) {
     .tg__btn-coupon:hover {
         color: ${c.accentBg};
     }
+    
+    .tg__coupon_square{
+       background: ${c.betSlipInputG};
+    }
+    
+    .tg__coupon_factor {
+       background: ${c.betSlipButtonG};
+       color: ${c.betSlipButtonTxt}
+    }
 
     .es__stepped_slider_cont {
         background: ${c.subHeaderG};
         color: ${c.subHeaderTxt};
     }
     
-    /* Colors we can't change */
-    .tg__badge_live {
-        background-color: #CB0000;
-        color: #fff;
+     .tg__badge_live {
+        background-color: ${c.widgetBg};
+        color: ${c.widgetTxt};
+       
     }
+    
+    .tg-ico-date{
+        color: ${c.widgetTxt};
+    }
+    
+    .tg__switch input:checked + .tg__switch_ico:before {
+        background: ${c.brandG};
+     }
+    
+    /* Colors we can't change */
+    .tab_selector_active .tg__badge_live {
+         background-color: #CB0000;
+         color: #fff;
+    }
+    
+    .tg__switch .tg__switch_ico {
+        background-color: #999;
+    }
+
+    .tg__switch .tg__switch_ico:before {
+       background-color: #fff;
+    }
+
+
 
     .tg--coupon-container.tg--coupon-single-tab .tab_selector_active {
         background: transparent !important;
@@ -1104,7 +1188,7 @@ function createCss(c) {
     }
     .tab_selector.tab_selector_active, .tab_selector:hover{
         border-top: 1px solid ${c.activeTabBgL};
-    }
+    }   
     .africanView .tg--home2__stakeItem {
         border-top: 1px solid ${c.tabBgL};
         border-bottom: 1px solid ${c.tabBgD};
@@ -1180,7 +1264,6 @@ function createCss(c) {
     .tab_selector{
         background: linear-gradient(90deg, ${c.primaryBg} 0%, ${c.tabBg} 30%, ${c.tabBg} 100%);
     }
-
     .tg__one_game,
     .tg__left_menu_item--lvl1,
     .tg__left_menu_item--lvl2,
