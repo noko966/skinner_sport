@@ -51,7 +51,11 @@ const renderRules = (req, res) => {
   });
 };
 
-app.get("/", renderWebView);
+app.get("/", (req, res) => {
+  // renderWebView();
+  res.redirect("/sportWeb");
+}
+);
 app.get("/sportMobile", renderMobileView);
 app.get("/sportWeb", renderWebView);
 app.get("/sportRules", renderRules);
