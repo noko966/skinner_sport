@@ -156,6 +156,7 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.314s;
+    margin: 0 5px;
 }
 .nik_skinner_control_group_picker:hover {
     background: #0f4448;
@@ -277,7 +278,7 @@ body {
 }
 
 .nik_skinner_header_control {
-    width: 90px;
+    width: 120px;
     flex-shrink: 0;
     padding: 5px 0;
     text-align: center;
@@ -295,7 +296,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 90px;
+    width: 120px;
     min-height: 50px;
     flex-shrink: 0;
     border-right: 1px solid #11585d;
@@ -308,25 +309,49 @@ body {
 }
 
 .nik_skinner_control_group_checkbox_wrapper > .nik_skinner_control_group_checkbox_imitator{
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     display: block;
     transition: all 0.314s;
     background-color: transparent;
-    border: 2px solid #22da3e;
+    border: 1px solid #fff;
     border-radius: 50%;
     cursor: pointer;
     position: relative;
 }
 
-.nik_skinner_control_group_checkbox_wrapper > input:checked + .nik_skinner_control_group_checkbox_imitator{
-    background-color: #22da3e;
+.nik_skinner_control_group_checkbox_wrapper > .nik_skinner_control_group_checkbox_imitator::before{
+    content: "🗸";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 14px;
+    height: 14px;
+    line-height: 16px;
+    font-size: 16px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.314s;
+    color: #63dc34;
+    font-weight: bold;
+}
+
+.nik_skinner_control_group_checkbox_wrapper-invert > .nik_skinner_control_group_checkbox_imitator::before{
+    content: "⇄";
+    line-height: 13px;
+    color: #fb2a04;
+}
+
+.nik_skinner_control_group_checkbox_wrapper > input:checked + .nik_skinner_control_group_checkbox_imitator::before{
+    opacity: 1;
 }
 
 .nik_skinner_checkbox_wrapper-controls .nik_skinner_control_group_checkbox_wrapper{
-    position: absolute;
-    top: 0;
-    left: 0;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
 }
 
 /* width */

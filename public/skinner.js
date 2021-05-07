@@ -100,6 +100,8 @@ class Skinner {
     let _upperCaseName = _name[0].toUpperCase() + _name.substring(1);
     let _isName = "is" + _upperCaseName + "Bg";
     let _isGradient = "is" + _upperCaseName + "Gradient";
+    let _isGradientReversed = _isGradient + "Reversed";
+
     let _isCustomTxt = "isCustom" + _upperCaseName + "Txt";
     let _customTxt = "custom" + _upperCaseName + "Txt";
     let _isNameDark = "is" + _upperCaseName + "BgDark";
@@ -109,6 +111,7 @@ class Skinner {
     this.skin[_isNameDark] = false;
     this.skin[_isName] = false;
     this.skin[_isCustomTxt] = false;
+    this.skin[_isGradientReversed] = false;
     this.skin[_nameBg] = _color;
     this.skin[_nameBg_g] = this.skin[_isNameDark] ?
       tinycolor(this.skin[_nameBg]).darken(6).toString() :
@@ -170,16 +173,15 @@ class Skinner {
     let _upperCaseName = _name[0].toUpperCase() + _name.substring(1);
     let _isName = "is" + _upperCaseName + "Bg";
     let _isGradient = "is" + _upperCaseName + "Gradient";
-    let _isGradientInvert = "is" + _upperCaseName + "GradientInvert";
+    let _isGradientReversed = _isGradient + "Reversed";
     let _isNameDark = "is" + _upperCaseName + "BgDark";
     let _isCustomNameTxt = "isCustom" + _upperCaseName + "Txt";
     let _customNameTxt = "custom" + _upperCaseName + "Txt";
 
     let _fallback = fallBack;
-    // let _upperCaseFallBack, _isFallBackGradient, _fallbackBg, _fallbackBg2, _isCustomFallbackTxt, _customFallbackTxt
-    // _fallbackBg_g, _fallbackG, _isFallbackDark;
     let _upperCaseFallBack = _fallback[0].toUpperCase() + _fallback.substring(1);
     let _isFallBackGradient = "is" + _upperCaseFallBack + "Gradient";
+    let _isFallBackGradientReversed = _isFallBackGradient + "Reversed";
     let _fallbackBg = _fallback + "Bg";
     let _fallbackBg2 = _fallback + "Bg2";
     let _isCustomFallbackTxt = "isCustom" + _upperCaseFallBack + "Txt";
@@ -218,9 +220,15 @@ class Skinner {
         tinycolor(this.skin[_nameBg]).lighten(2).toString();
       this.skin[_nameBgL] = tinycolor(this.skin[_nameBg]).lighten(3).toString();
       this.skin[_nameBgD] = tinycolor(this.skin[_nameBg]).darken(3).toString();
+
       if (this.skin[_isGradient]) {
-        this.skin[_nameG] = `linear-gradient(0deg, ${this.skin[_nameBg]} 0%, ${this.skin[_nameBg_g]} 100%)`;
+        if (this.skin[_isGradientReversed]) {
+          this.skin[_nameG] = `linear-gradient(0deg, ${this.skin[_nameBg_g]} 0%, ${this.skin[_nameBg]} 100%)`;
+        } else {
+          this.skin[_nameG] = `linear-gradient(0deg, ${this.skin[_nameBg]} 0%, ${this.skin[_nameBg_g]} 100%)`;
+        }
       }
+
     } else {
       this.skin[_nameBg] = _color ? this.skin[_fallback + _color] : this.skin[_fallbackBg2];
       this.skin[_nameG] = this.skin[_nameBg];
@@ -244,9 +252,17 @@ class Skinner {
 
 
       if (this.skin[_isFallBackGradient]) {
-        this.skin[_nameG] = _color ?
-          `linear-gradient(0deg, ${this.skin[_fallback + _color]} 0%, ${this.skin[_fallbackBg_g]} 100%)` :
-          `linear-gradient(0deg, ${this.skin[_fallbackBg2]} 0%, ${this.skin[_fallbackBg_g]} 100%)`
+
+        if (this.skin[_isFallBackGradientReversed]) {
+          this.skin[_nameG] = _color ?
+            `linear-gradient(0deg, ${this.skin[_fallbackBg_g]} 0%, ${this.skin[_fallback + _color]} 100%)` :
+            `linear-gradient(0deg, ${this.skin[_fallbackBg_g]} 0%, ${this.skin[_fallbackBg2]} 100%)`;
+        } else {
+          this.skin[_nameG] = _color ?
+            `linear-gradient(0deg, ${this.skin[_fallback + _color]} 0%, ${this.skin[_fallbackBg_g]} 100%)` :
+            `linear-gradient(0deg, ${this.skin[_fallbackBg2]} 0%, ${this.skin[_fallbackBg_g]} 100%)`;
+        }
+
       }
 
     }
@@ -321,16 +337,17 @@ class Skinner {
       this[_nameBg].pickerTxtChb.checked = this.skin[_isCustomTxt];
     }
 
-    if(!_alwaysOn){
+    if (!_alwaysOn) {
       this[_nameBg].checkBox.checked = this.skin[_isName];
     }
-    if(!noGradient){
+    if (!noGradient) {
       this[_nameBg].checkBox2.checked = this.skin[_isGradient];
       this[_nameBg].picker2.style.background = this.skin[_nameBg_g];
 
       this.skin[_isName] && this.skin[_isGradient] ?
-      (this[_nameBg].picker2.disabled = false) :
-      (this[_nameBg].picker2.disabled = true);
+        (this[_nameBg].picker2.disabled = false) :
+        (this[_nameBg].picker2.disabled = true);
+
     }
 
     this[_nameBg].picker.style.background = this.skin[_nameBg];
@@ -339,7 +356,7 @@ class Skinner {
       (this[_nameBg].picker.disabled = false) :
       (this[_nameBg].picker.disabled = true);
 
-    
+
 
     if (this[_nameBg].pickerTxtChb) {
       this.skin[_isName] && this.skin[_isCustomTxt] ?
@@ -389,7 +406,7 @@ class Skinner {
     this.modifyControls("sideBarTab");
     this.modifyControls("input");
     this.modifyControls("widgetInput");
-        
+
     this.modifyRange("borderRadius");
     this.modifyRange("inputBorderRadius");
     this.modifyRange("buttonBorderRadius");
@@ -403,8 +420,9 @@ class Skinner {
       this.skinnerContainer,
       null,
       null,
+      null,
       (e) => {
-        this.modifyKey("primaryBg", e.detail.color.hex);
+        this.modifyKey("primaryBg", e.toHEXA().toString());
       },
       null,
       (e) => {
@@ -422,10 +440,13 @@ class Skinner {
         this.modifyKey("isAccentGradient", e.target.checked);
       },
       (e) => {
-        this.modifyKey("accentBg", e.detail.color.hex);
+        this.modifyKey("isAccentGradientReversed", e.target.checked);
       },
       (e) => {
-        this.modifyKey("accentBg_g", e.detail.color.hex);
+        this.modifyKey("accentBg", e.toHEXA().toString());
+      },
+      (e) => {
+        this.modifyKey("accentBg_g", e.toHEXA().toString());
       },
       (e) => {
         this.modifyKey("isAccentBgDark", e.target.checked);
@@ -434,7 +455,7 @@ class Skinner {
         this.modifyKey("isCustomAccentTxt", e.target.checked);
       },
       (e) => {
-        this.modifyKey("customAccentTxt", e.detail.color.hex);
+        this.modifyKey("customAccentTxt", e.toHEXA().toString());
       }
     );
 
@@ -445,6 +466,7 @@ class Skinner {
       let _upperCaseName = _name[0].toUpperCase() + _name.substring(1);
       let _isName = "is" + _upperCaseName + "Bg";
       let _isGradient = "is" + _upperCaseName + "Gradient";
+      let _isGradientReversed = _isGradient + "Reversed";
       let _isCustomTxt = "isCustom" + _upperCaseName + "Txt";
       let _customTxt = "custom" + _upperCaseName + "Txt";
       let _isNameBgDark = "is" + _upperCaseName + "BgDark";
@@ -459,10 +481,13 @@ class Skinner {
           this.modifyKey(_isGradient, e.target.checked);
         },
         (e) => {
-          this.modifyKey(_nameBg, e.detail.color.hex);
+          this.modifyKey(_isGradientReversed, e.target.checked);
         },
         (e) => {
-          this.modifyKey(_nameBg_g, e.detail.color.hex);
+          this.modifyKey(_nameBg, e.toHEXA().toString());
+        },
+        (e) => {
+          this.modifyKey(_nameBg_g, e.toHEXA().toString());
         },
         (e) => {
           this.modifyKey(_isNameBgDark, e.target.checked);
@@ -471,7 +496,7 @@ class Skinner {
           this.modifyKey(_isCustomTxt, e.target.checked);
         },
         (e) => {
-          this.modifyKey(_customTxt, e.detail.color.hex);
+          this.modifyKey(_customTxt, e.toHEXA().toString());
         }
       );
 
@@ -553,10 +578,6 @@ class Skinner {
     headerControl3.className = "nik_skinner_header_control";
     headerControl3.innerText = "gradient";
 
-    let headerControl4 = document.createElement("div");
-    headerControl4.className = "nik_skinner_header_control";
-    headerControl4.innerText = "invert";
-
     let headerControl5 = document.createElement("div");
     headerControl5.className = "nik_skinner_header_control";
     headerControl5.innerText = "text";
@@ -565,7 +586,6 @@ class Skinner {
     header.appendChild(headerControl1);
     header.appendChild(headerControl2);
     header.appendChild(headerControl3);
-    header.appendChild(headerControl4);
     header.appendChild(headerControl5);
 
     toolboxWrapper.appendChild(main);
@@ -716,6 +736,7 @@ class Skinner {
     parent,
     checkboxCallback,
     gradientCallback,
+    reverseGradientCallback,
     pickerCallback,
     picker2Callback,
     isDarkCallback,
@@ -732,11 +753,11 @@ class Skinner {
     wrapper.className = "nik_skinner_control_group";
 
     let checkBoxWrapper, checkBoxImitator, checkBox;
+    checkBoxWrapper = document.createElement("label");
+    checkBoxWrapper.className = "nik_skinner_control_group_checkbox_wrapper";
     if (checkboxCallback) {
-      checkBoxWrapper =  document.createElement("label");
-      checkBoxWrapper.className = "nik_skinner_control_group_checkbox_wrapper";
       checkBoxWrapper.htmlFor = label;
-      checkBoxImitator =  document.createElement("i");
+      checkBoxImitator = document.createElement("i");
       checkBoxImitator.className = "nik_skinner_control_group_checkbox_imitator";
       checkBox = document.createElement("input");
       checkBox.type = "checkbox";
@@ -748,26 +769,34 @@ class Skinner {
     }
 
 
-    let checkBoxIsDark;
+    let checkBoxIsDark, checkBoxIsDarkWrapper, checkBoxIsDarkImitator;
     if (isDarkCallback) {
+      checkBoxIsDarkWrapper = document.createElement("label");
+      checkBoxIsDarkWrapper.className = "nik_skinner_control_group_checkbox_wrapper nik_skinner_control_group_checkbox_wrapper-invert";
+      checkBoxIsDarkWrapper.htmlFor = label + "dark";
+      checkBoxIsDarkImitator = document.createElement("i");
+      checkBoxIsDarkImitator.className = "nik_skinner_control_group_checkbox_imitator";
       checkBoxIsDark = document.createElement("input");
       checkBoxIsDark.type = "checkbox";
       checkBoxIsDark.className = "nik_skinner_control_group_checkbox";
       checkBoxIsDark.id = label + "dark";
       checkBoxIsDark.addEventListener("change", isDarkCallback);
+      checkBoxIsDarkWrapper.appendChild(checkBoxIsDark);
+      checkBoxIsDarkWrapper.appendChild(checkBoxIsDarkImitator);
     }
 
-    let pickerEl = document.createElement("input");
-    let p = new ColorPicker(pickerEl);
+    let pickerEl = document.createElement("div");
     pickerEl.className = "nik_skinner_control_group_picker";
-    pickerEl.addEventListener("colorChange", pickerCallback);
 
-    let picker2El, checkBox2, checkBox2Wrapper, checkBox2Imitator, p2;
+
+
+    let picker2El, checkBox2, checkBox2Wrapper, checkBox2Imitator;
+    let checkBoxRevertGradient, checkBoxRevertGradientWrapper, checkBoxRevertGradientImitator;
     if (gradientCallback) {
-      checkBox2Wrapper =  document.createElement("label");
+      checkBox2Wrapper = document.createElement("label");
       checkBox2Wrapper.className = "nik_skinner_control_group_checkbox_wrapper";
       checkBox2Wrapper.htmlFor = label + "_g";
-      checkBox2Imitator =  document.createElement("i");
+      checkBox2Imitator = document.createElement("i");
       checkBox2Imitator.className = "nik_skinner_control_group_checkbox_imitator";
       checkBox2 = document.createElement("input");
       checkBox2.type = "checkbox";
@@ -777,19 +806,30 @@ class Skinner {
       checkBox2Wrapper.appendChild(checkBox2);
       checkBox2Wrapper.appendChild(checkBox2Imitator);
 
-      picker2El = document.createElement("input");
-      p2 = new ColorPicker(picker2El);
+      picker2El = document.createElement("div");
       picker2El.className = "nik_skinner_control_group_picker";
       wrapper.appendChild(picker2El);
-      picker2El.addEventListener("colorChange", picker2Callback);
+
+      checkBoxRevertGradientWrapper = document.createElement("label");
+      checkBoxRevertGradientWrapper.className = "nik_skinner_control_group_checkbox_wrapper nik_skinner_control_group_checkbox_wrapper-invert";
+      checkBoxRevertGradientWrapper.htmlFor = label + "_invert";
+      checkBoxRevertGradientImitator = document.createElement("i");
+      checkBoxRevertGradientImitator.className = "nik_skinner_control_group_checkbox_imitator";
+      checkBoxRevertGradient = document.createElement("input");
+      checkBoxRevertGradient.type = "checkbox";
+      checkBoxRevertGradient.className = "nik_skinner_control_group_checkbox";
+      checkBoxRevertGradient.id = label + "_invert";
+      checkBoxRevertGradient.addEventListener("change", reverseGradientCallback);
+      checkBoxRevertGradientWrapper.appendChild(checkBoxRevertGradient);
+      checkBoxRevertGradientWrapper.appendChild(checkBoxRevertGradientImitator);
     }
 
     let pickerTxtChb, pickerTxtChbWrapper, pickerTxtChbImitator, pickerTxtColorEl, p3;
     if (isCustomTextCallback && picker3Callback) {
-      pickerTxtChbWrapper =  document.createElement("label");
+      pickerTxtChbWrapper = document.createElement("label");
       pickerTxtChbWrapper.className = "nik_skinner_control_group_checkbox_wrapper";
       pickerTxtChbWrapper.htmlFor = label + "_gg";
-      pickerTxtChbImitator =  document.createElement("i");
+      pickerTxtChbImitator = document.createElement("i");
       pickerTxtChbImitator.className = "nik_skinner_control_group_checkbox_imitator";
       pickerTxtChb = document.createElement("input");
       pickerTxtChb.type = "checkbox";
@@ -800,50 +840,109 @@ class Skinner {
       pickerTxtChbWrapper.appendChild(pickerTxtChbImitator);
 
 
-      pickerTxtColorEl = document.createElement("input");
-      p3 = new ColorPicker(pickerTxtColorEl);
+      pickerTxtColorEl = document.createElement("div");
       pickerTxtColorEl.className = "nik_skinner_control_group_picker";
-      pickerTxtColorEl.addEventListener("colorChange", picker3Callback);
     }
 
     let isEnabledWrapper = document.createElement("div");
     isEnabledWrapper.className = "nik_skinner_checkbox_wrapper nik_skinner_checkbox_wrapper-controls";
     let isGradientEnabledWrapper = document.createElement("div");
     isGradientEnabledWrapper.className = "nik_skinner_checkbox_wrapper nik_skinner_checkbox_wrapper-controls";
-    let invertWrapper = document.createElement("div");
-    invertWrapper.className = "nik_skinner_checkbox_wrapper";
     let isCustomTextWrapper = document.createElement("div");
     isCustomTextWrapper.className = "nik_skinner_checkbox_wrapper nik_skinner_checkbox_wrapper-controls";
 
     wrapper.appendChild(_label);
     wrapper.appendChild(isEnabledWrapper);
     wrapper.appendChild(isGradientEnabledWrapper);
-    wrapper.appendChild(invertWrapper);
     wrapper.appendChild(isCustomTextWrapper);
 
-    if (checkboxCallback) {
-      isEnabledWrapper.appendChild(checkBoxWrapper);
-    }
+    isEnabledWrapper.appendChild(checkBoxWrapper);
     isEnabledWrapper.appendChild(pickerEl);
+    if (isDarkCallback) {
+      isEnabledWrapper.appendChild(checkBoxIsDarkWrapper);
+    }
     if (gradientCallback) {
       isGradientEnabledWrapper.appendChild(checkBox2Wrapper);
       isGradientEnabledWrapper.appendChild(picker2El);
+      isGradientEnabledWrapper.appendChild(checkBoxRevertGradientWrapper);
     }
-    if (isDarkCallback) {
-      invertWrapper.appendChild(checkBoxIsDark);
-    }
+
     if (isCustomTextCallback && picker3Callback) {
       isCustomTextWrapper.appendChild(pickerTxtChbWrapper);
       isCustomTextWrapper.appendChild(pickerTxtColorEl);
+      let chbDummy = document.createElement("label");
+      chbDummy.className = "nik_skinner_control_group_checkbox_wrapper";
+      isCustomTextWrapper.appendChild(chbDummy);
     }
 
     parent.appendChild(wrapper);
+
+    const p = Pickr.create({
+      el: pickerEl,
+      theme: "classic",
+      comparison: false,
+      components: {
+        preview: true,
+        hue: true,
+        // Input / output Options
+        interaction: {
+          input: true,
+          save: true
+        }
+      }
+    });
+
+    p.on("change", pickerCallback);
+
+    if (gradientCallback) {
+      const p2 = Pickr.create({
+        el: picker2El,
+        theme: "classic",
+        comparison: false,
+        components: {
+          preview: true,
+          hue: true,
+          // Input / output Options
+          interaction: {
+            input: true,
+            save: true
+          }
+        }
+      });
+
+      p2.on("change", picker2Callback);
+    }
+
+    if (isCustomTextCallback && picker3Callback) {
+      const p3 = Pickr.create({
+        el: pickerTxtColorEl,
+        theme: "classic",
+        comparison: false,
+        components: {
+          preview: true,
+          hue: true,
+          // Input / output Options
+          interaction: {
+            input: true,
+            save: true
+          }
+        }
+      });
+
+      p3.on("change", picker3Callback);
+    }
+
+
+
+
+
 
     return {
       picker: pickerEl,
       picker2: picker2El,
       checkBox,
       checkBox2,
+      checkBoxRevertGradient,
       checkBoxIsDark,
       pickerTxtChb,
       pickerTxtColor: pickerTxtColorEl,
