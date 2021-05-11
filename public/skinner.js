@@ -342,26 +342,23 @@ class Skinner {
     }
     if (!noGradient) {
       this[_nameBg].checkBox2.checked = this.skin[_isGradient];
-      this[_nameBg].picker2.style.background = this.skin[_nameBg_g];
+      // this[_nameBg].picker2.style.background = this.skin[_nameBg_g];
 
       this.skin[_isName] && this.skin[_isGradient] ?
-        (this[_nameBg].picker2.disabled = false) :
-        (this[_nameBg].picker2.disabled = true);
-
+        (this[_nameBg].picker2.enable()) :
+        (this[_nameBg].picker2.disable());
     }
 
-    this[_nameBg].picker.style.background = this.skin[_nameBg];
+    // this[_nameBg].picker.style.background = this.skin[_nameBg];
 
     this.skin[_isName] ?
-      (this[_nameBg].picker.disabled = false) :
-      (this[_nameBg].picker.disabled = true);
-
-
+      (this[_nameBg].picker.enable()) :
+      (this[_nameBg].picker.disable());
 
     if (this[_nameBg].pickerTxtChb) {
       this.skin[_isName] && this.skin[_isCustomTxt] ?
-        (this[_nameBg].pickerTxtColor.disabled = false) :
-        (this[_nameBg].pickerTxtColor.disabled = true);
+        (this[_nameBg].pickerTxtColor.enable()) :
+        (this[_nameBg].pickerTxtColor.disable());
     }
 
   }
@@ -610,7 +607,7 @@ class Skinner {
   createCloseButton() {
     this.toolBox = document.querySelector(".skinner_toolbox");
     this.closeBtn = document.createElement("button");
-    this.closeBtn.innerHTML = '<i class="tg-ico-arrow">Ã</i>';
+    this.closeBtn.innerHTML = '<i class="nik-ico-arrow">Ã</i>';
     this.closeBtn.setAttribute("class", "color_controls_toggle tg-ico-arrow");
     this.closeBtn.addEventListener("click", () => {
       if (this.toolBox.classList.contains("skinner_toolbox-hidden")) {
@@ -749,6 +746,10 @@ class Skinner {
     _label.htmlFor = label;
     _label.innerText = label;
 
+    let pickerMainColor = this.skin[label + "Bg"];
+    let pickerGradientColor = this.skin[label + "Bg_g"];
+    let pickerTextColor = this.skin[label + "Txt"];
+
     let wrapper = document.createElement("div");
     wrapper.className = "nik_skinner_control_group";
 
@@ -824,7 +825,7 @@ class Skinner {
       checkBoxRevertGradientWrapper.appendChild(checkBoxRevertGradientImitator);
     }
 
-    let pickerTxtChb, pickerTxtChbWrapper, pickerTxtChbImitator, pickerTxtColorEl, p3;
+    let pickerTxtChb, pickerTxtChbWrapper, pickerTxtChbImitator, pickerTxtColorEl;
     if (isCustomTextCallback && picker3Callback) {
       pickerTxtChbWrapper = document.createElement("label");
       pickerTxtChbWrapper.className = "nik_skinner_control_group_checkbox_wrapper";
@@ -877,10 +878,11 @@ class Skinner {
 
     parent.appendChild(wrapper);
 
-    const p = Pickr.create({
+    let p = Pickr.create({
       el: pickerEl,
       theme: "classic",
       comparison: false,
+      default: pickerMainColor,
       components: {
         preview: true,
         hue: true,
@@ -894,11 +896,13 @@ class Skinner {
 
     p.on("change", pickerCallback);
 
+    let p2;
     if (gradientCallback) {
-      const p2 = Pickr.create({
+      p2 = Pickr.create({
         el: picker2El,
         theme: "classic",
         comparison: false,
+        default: pickerGradientColor,
         components: {
           preview: true,
           hue: true,
@@ -913,11 +917,13 @@ class Skinner {
       p2.on("change", picker2Callback);
     }
 
+    let p3;
     if (isCustomTextCallback && picker3Callback) {
-      const p3 = Pickr.create({
+      p3 = Pickr.create({
         el: pickerTxtColorEl,
         theme: "classic",
         comparison: false,
+        default: pickerTextColor,
         components: {
           preview: true,
           hue: true,
@@ -932,20 +938,15 @@ class Skinner {
       p3.on("change", picker3Callback);
     }
 
-
-
-
-
-
     return {
-      picker: pickerEl,
-      picker2: picker2El,
+      picker: p,
+      picker2: p2,
       checkBox,
       checkBox2,
       checkBoxRevertGradient,
       checkBoxIsDark,
       pickerTxtChb,
-      pickerTxtColor: pickerTxtColorEl,
+      pickerTxtColor: p3,
     };
   }
 }

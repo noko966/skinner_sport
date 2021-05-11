@@ -394,3 +394,16 @@ body {
     /* border: 2px solid #428d92; */
     position: relative;
 }
+
+.nik-ico-arrow{
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 23px;
+    font-family: TotoFont;
+    text-transform: none;
+    font-size: 16px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    font-style: normal !important;
+}

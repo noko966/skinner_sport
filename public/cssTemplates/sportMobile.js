@@ -1,13 +1,17 @@
 function createCss(c) {
   let css = `
+         body{
+            background: ${c.primaryBg};
+            color: ${c.primaryTxt}; 
+         }
          .dm__odd-skin,
          .dm__market_odd {
             background: ${c.oddG};
             color: ${c.oddTxt};
         }
         .dm__odd-selected {
-            background: ${c.accentG};
-            color: ${c.accentTxt};
+            background: ${c.brandG};
+            color: ${c.brandTxt};
         }
         .eXsTpK{
             background-color: ${c.widgetBg};
