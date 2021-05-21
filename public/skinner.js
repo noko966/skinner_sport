@@ -323,6 +323,7 @@ class Skinner {
 
     let _name = name;
     let _nameBg = name + "Bg";
+    let _nameTxt = name + "Txt";
     let _nameBg_g = _nameBg + "_g";
     let _upperCaseName = _name[0].toUpperCase() + _name.substring(1);
     let _isName = "is" + _upperCaseName + "Bg";
@@ -337,29 +338,33 @@ class Skinner {
       this[_nameBg].pickerTxtChb.checked = this.skin[_isCustomTxt];
     }
 
+    this[_nameBg].picker.applyColor(this.skin[_nameBg]);
+
     if (!_alwaysOn) {
       this[_nameBg].checkBox.checked = this.skin[_isName];
     }
     if (!noGradient) {
       this[_nameBg].checkBox2.checked = this.skin[_isGradient];
-      // this[_nameBg].picker2.style.background = this.skin[_nameBg_g];
+      // this[_nameBg].picker2.setColor(this.skin[_nameBg_g]);
+      this[_nameBg].picker2.applyColor(this.skin[_nameBg_g]);
 
       this.skin[_isName] && this.skin[_isGradient] ?
         (this[_nameBg].picker2.enable()) :
         (this[_nameBg].picker2.disable());
     }
 
-    // this[_nameBg].picker.style.background = this.skin[_nameBg];
 
     this.skin[_isName] ?
       (this[_nameBg].picker.enable()) :
       (this[_nameBg].picker.disable());
 
     if (this[_nameBg].pickerTxtChb) {
+      this[_nameBg].pickerTxtColor.applyColor(this.skin[_nameTxt]);
       this.skin[_isName] && this.skin[_isCustomTxt] ?
         (this[_nameBg].pickerTxtColor.enable()) :
         (this[_nameBg].pickerTxtColor.disable());
     }
+
 
   }
 
@@ -886,7 +891,6 @@ class Skinner {
       components: {
         preview: true,
         hue: true,
-        // Input / output Options
         interaction: {
           input: true,
           save: true
@@ -906,7 +910,6 @@ class Skinner {
         components: {
           preview: true,
           hue: true,
-          // Input / output Options
           interaction: {
             input: true,
             save: true
@@ -927,7 +930,6 @@ class Skinner {
         components: {
           preview: true,
           hue: true,
-          // Input / output Options
           interaction: {
             input: true,
             save: true
