@@ -1,10 +1,12 @@
 class Skinner {
-  constructor(cssCb, jsCb) {
+  constructor(cssCb, jsCb, colors) {
     this.skinnerContainer = this.createControlsWrapper();
 
     this.cssCb = cssCb;
     this.jsCb = jsCb;
     this.skin = {};
+
+    this._colors = colors || [];
 
     this.variables = [];
 
@@ -14,29 +16,10 @@ class Skinner {
     this.skin.isPrimaryBg = true;
     this.skin.isAccentBg = true;
 
-    this.generateConfigColor("widget", "#333333");
-    this.generateConfigColor("brand", "#f14100");
-    this.generateConfigColor("odd", "#161616");
-    this.generateConfigColor("showMore", "#242424");
-    this.generateConfigColor("header", "#333333");
-    this.generateConfigColor("subHeader", "#161616");
-
-    this.generateConfigColor("singleGame", "#333333");
-    this.generateConfigColor("leftMenuLevel_A", "#333333");
-    this.generateConfigColor("leftMenuLevel_B", "#424242");
-    this.generateConfigColor("leftMenuLevel_C", "#424242");
-    this.generateConfigColor("betSlip", "#333333");
-    this.generateConfigColor("betSlipStake", "#444444");
-    this.generateConfigColor("betSlipInput", "#262626");
-    this.generateConfigColor("betSlipButton", "#1A1A1A");
-    this.generateConfigColor("popupHeader", "#262626");
-    this.generateConfigColor("popup", "#333333");
-    this.generateConfigColor("activeTab", "#333333");
-    this.generateConfigColor("tab", "#2b2b2b");
-    this.generateConfigColor("sideBarActiveTab", "#333333");
-    this.generateConfigColor("sideBarTab", "#2b2b2b");
-    this.generateConfigColor("input", "#333333");
-    this.generateConfigColor("widgetInput", "#2b2b2b");
+    for (let i = 0; i < this._colors.length; i++) {
+      this.generateConfigColor(this._colors[i].name, this._colors[i].value);
+      
+    }
 
     this.generateConfigBorderRadius("borderRadius", "0");
     this.generateConfigBorderRadius("inputBorderRadius", "0");
@@ -296,29 +279,9 @@ class Skinner {
       tinycolor(this.skin.accentBg).lighten(10).toString();
     this.skin.accentTxt = guessVisibleColor(this.skin.accentBg);
 
-
-    this.generateColorLogick("widget", "primary");
-    this.generateColorLogick("brand", "accent");
-    this.generateColorLogick("odd", "primary", "Bg");
-    this.generateColorLogick("showMore", "primary", "Bg");
-    this.generateColorLogick("header", "widget", "Bg");
-    this.generateColorLogick("subHeader", "widget");
-    this.generateColorLogick("singleGame", "widget", "Bg");
-    this.generateColorLogick("leftMenuLevel_A", "widget", "Bg");
-    this.generateColorLogick("leftMenuLevel_B", "widget");
-    this.generateColorLogick("leftMenuLevel_C", "widget");
-    this.generateColorLogick("betSlip", "widget", "Bg");
-    this.generateColorLogick("betSlipStake", "widget");
-    this.generateColorLogick("betSlipInput", "betSlip");
-    this.generateColorLogick("betSlipButton", "betSlip");
-    this.generateColorLogick("popupHeader", "widget");
-    this.generateColorLogick("popup", "widget", "Bg");
-    this.generateColorLogick("activeTab", "widget", "Bg");
-    this.generateColorLogick("tab", "widget");
-    this.generateColorLogick("sideBarActiveTab", "activeTab", "Bg");
-    this.generateColorLogick("sideBarTab", "tab");
-    this.generateColorLogick("input", "widget", "Bg");
-    this.generateColorLogick("widgetInput", "primary", "Bg3");
+    for (let i = 0; i < this._colors.length; i++) {
+      this.generateColorLogick(this._colors[i].name, this._colors[i].fallback, this._colors[i].variation);
+    }
 
     this.generateBorderRadiusLogick("inputBorderRadius", "borderRadius");
     this.generateBorderRadiusLogick("buttonBorderRadius", "borderRadius");
@@ -390,28 +353,10 @@ class Skinner {
   applyInitialValues() {
     this.modifyControls("primary", true, true);
     this.modifyControls("accent", true);
-    this.modifyControls("widget");
-    this.modifyControls("brand");
-    this.modifyControls("odd");
-    this.modifyControls("showMore");
-    this.modifyControls("header");
-    this.modifyControls("subHeader");
-    this.modifyControls("singleGame");
-    this.modifyControls("leftMenuLevel_A");
-    this.modifyControls("leftMenuLevel_B");
-    this.modifyControls("leftMenuLevel_C");
-    this.modifyControls("betSlip");
-    this.modifyControls("betSlipStake");
-    this.modifyControls("betSlipInput");
-    this.modifyControls("betSlipButton");
-    this.modifyControls("popupHeader");
-    this.modifyControls("popup");
-    this.modifyControls("activeTab");
-    this.modifyControls("tab");
-    this.modifyControls("sideBarActiveTab");
-    this.modifyControls("sideBarTab");
-    this.modifyControls("input");
-    this.modifyControls("widgetInput");
+    
+    for (let i = 0; i < this._colors.length; i++) {
+      this.modifyControls(this._colors[i].name);
+    }
 
     this.modifyRange("borderRadius");
     this.modifyRange("inputBorderRadius");
@@ -465,8 +410,8 @@ class Skinner {
       }
     );
 
-    for (let i = 2; i < this.variables.length; i++) {
-      let _name = this.variables[i];
+    for (let i = 0; i < this._colors.length; i++) {
+      let _name = this._colors[i].name;
       let _nameBg = _name + "Bg";
       let _nameBg_g = _nameBg + "_g";
       let _upperCaseName = _name[0].toUpperCase() + _name.substring(1);

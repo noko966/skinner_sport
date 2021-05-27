@@ -15,51 +15,51 @@
         }
     }
     body {
-        background-color: #333333;
+        background-color: #222222;
     }
     header{ 
-        background: #424242; 
+        background: undefined; 
         box-shadow: 3px 1px 4px #000;
     }
     .languages .select-list,
     .langRow{ 
-        background-color: #424242; 
+        background-color: #892626; 
     }
     .langRow .txt{
         color: #cccccc;
     }
     .langRow:hover{ 
-         background-color: #4a4a4a;
+         background-color: #9d2c2c;
     }
     .languages #selLang > a {
         border-radius: undefinedpx;
     }
     .expandable-list{ 
-         background-color: #333333; 
+         background-color: #222222; 
     }
     .main-col {
-        background: #333333;
-        color: #ffffff;
+        background: #611B1B;
+        color: #fff;
     }
     .expandable-list .menuleft .menuleftа {
-        background: #494949; 
-        color: #ffffff;
+        background: undefined; 
+        color: undefined;
     }
     .expandable-list .menuleft .menuleftа:hover{
-        background: #585858;
+        background: undefined;
     }
     .expandable-list .menuleft ul li a{ 
-        background-color: #4d4d4d; 
-        color: #ffffff;
+        background-color: undefined; 
+        color: undefined;
     }
     .expandable-list .menuleft ul li a:hover{
-        background-color: #5c5c5c;
+        background-color: undefined;
     }
     .expandable-list .menuleft ul li.active a{
-        background-color: #404040; 
+        background-color: undefined; 
     }
     .content-head{ 
-        color: #ffdf1b;
+        color: #ffb700;
     }
     .mob_nav{
         color: #cccccc;  

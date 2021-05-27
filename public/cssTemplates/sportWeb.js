@@ -793,11 +793,11 @@ function createCss(c) {
  }
 
 
- /*.sportHeaderPane,
+ .sportHeaderPane,
  #header_fix,
  .tg__footer {
     display: none !important;
- }*/
+ }
 
   
   `;

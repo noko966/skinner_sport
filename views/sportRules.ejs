@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mobile view</title>
+    <title>rules view</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- <script src="https://sport.betadigitain.com/js/partner/bootstrapper.min.js"></script> -->
     <link rel="stylesheet" href="/rulesAssets/rules.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
     <link rel="stylesheet" href="/style.css">
@@ -95,5 +96,23 @@
 <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
 <script src="/skinner.js"></script>
 
+
+<script>
+    var head = document.getElementsByTagName("head")[0];
+        var style = document.createElement("style");
+        style.setAttribute("type", "text/css");
+        head.appendChild(style);
+
+        let _createJs = window.createJs ? window.createJs : null;
+
+        let colors = [
+            {name:"widget",value:"#333",fallback:"primary",variation:""},
+            
+        ];
+
+        var SkinnerInstance = new Skinner(createCss, _createJs, colors);
+
+        SkinnerInstance.init();
+</script>
 
 </html>

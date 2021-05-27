@@ -74,7 +74,7 @@ function Neuron(bias) {
 
 
 function hexToRgb(hex) {
-
+  console.log(hex);
     var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(shorthandRegex, function(m, r, g, b) {
         return r + r + g + g + b + b;
@@ -181,7 +181,7 @@ function hexToRgb(hex) {
   
   function guessVisibleColor(hex){
       let temp = activate(hexToRgb(hex));
-    //   console.log(temp);
+      // console.log(temp);
       return temp > .5 ? "#fff" : "#000"
   }
 

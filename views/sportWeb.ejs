@@ -7,11 +7,7 @@
     <title>sport web</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
     <!-- <script src="https://sport.betadigitain.com/js/partner/bootstrapper.min.js"></script> -->
-
-
-
     <link rel="stylesheet" href="/sportAssets/Css/common.css">
     <link rel="stylesheet" href="/sportAssets/Css/CommonControls.css">
     <link rel="stylesheet" href="/sportAssets/Css/mainV1.css">
@@ -34,7 +30,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
 
 <script src="https://localhost:44397/js/Partner/IntegrationLoader.js"></script>
-
+<script src="/skinner.js"></script>
 <script>
     var loaderDiv = document.getElementById('loader');
     var sport_div_iframe = document.getElementById('sport_div_iframe');
@@ -58,7 +54,7 @@
         ['fixedHeight', true],
         ['bookingNumber', +bookingNumber], // 35638,
         ['eventsHandler', function () {
-            console.log(arguments)
+            // console.log(arguments)
         }]
     ]);
     SportFrame.elem.onload = function(){
@@ -70,7 +66,31 @@
 
         let _createJs = window.createJs ? window.createJs : null;
 
-        var SkinnerInstance = new Skinner(createCss, _createJs);
+        let colors = [
+            {name:"widget",value:"#333",fallback:"primary",variation:""},
+            {name:"brand",value:"#f14100",fallback:"accent",variation:""},
+            {name:"odd",value:"#161616",fallback:"primary",variation:"Bg"},
+            {name:"showMore",value:"#242424",fallback:"primary",variation:"Bg"},
+            {name:"header",value:"#333",fallback:"widget",variation:"Bg"},
+            {name:"subHeader",value:"#161616",fallback:"widget",variation:""},
+            {name:"singleGame",value:"#333",fallback:"widget",variation:"Bg"},
+            {name:"leftMenuLevel_A",value:"#333",fallback:"widget",variation:"Bg"},
+            {name:"leftMenuLevel_B",value:"#444",fallback:"widget",variation:""},
+            {name:"betSlip",value:"#333",fallback:"widget",variation:"Bg"},
+            {name:"betSlipStake",value:"#444",fallback:"widget",variation:""},
+            {name:"betSlipInput",value:"#262626",fallback:"betSlip",variation:""},
+            {name:"betSlipButton",value:"#1A1A1A",fallback:"betSlip",variation:""},
+            {name:"popupHeader",value:"#262626",fallback:"widget",variation:""},
+            {name:"popup",value:"#333",fallback:"widget",variation:"Bg"},
+            {name:"activeTab",value:"#333",fallback:"widget",variation:"Bg"},
+            {name:"tab",value:"#2b2b2b",fallback:"widget",variation:""},
+            {name:"sideBarActiveTab",value:"#333",fallback:"widget",variation:"Bg"},
+            {name:"sideBarTab",value:"#2b2b2b",fallback:"widget",variation:""},
+            {name:"input",value:"#333",fallback:"widget",variation:"Bg"},
+            {name:"widgetInput",value:"#2b2b2b",fallback:"primary",variation:"Bg3"},
+        ];
+
+        var SkinnerInstance = new Skinner(createCss, _createJs, colors);
 
         SkinnerInstance.init();
 
@@ -80,7 +100,7 @@
     }
 </script>
 
-<script src="/skinner.js"></script>
+
 <script>
 
 </script>
