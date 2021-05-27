@@ -114,16 +114,16 @@ class Skinner {
     this.skin[_isGradientReversed] = false;
     this.skin[_nameBg] = _color;
     this.skin[_nameBg_g] = this.skin[_isNameDark] ?
-      tinycolor(this.skin[_nameBg]).darken(6).toString() :
-      tinycolor(this.skin[_nameBg]).lighten(6).toString();
+      tinycolor(this.skin[_nameBg]).darken(10).toString() :
+      tinycolor(this.skin[_nameBg]).lighten(10).toString();
     this.skin[_nameG] = _color;
     this.skin[_nameBg2] = this.skin[_isNameDark] ?
-      tinycolor(this.skin[_nameBg]).darken(6).toString() :
-      tinycolor(this.skin[_nameBg]).lighten(6).toString();
+      tinycolor(this.skin[_nameBg]).darken(10).toString() :
+      tinycolor(this.skin[_nameBg]).lighten(10).toString();
     this.skin[_nameG2] = this.skin[_nameBg2];
     this.skin[_nameBg3] = this.skin[_isNameDark] ?
-      tinycolor(this.skin[_nameBg]).darken(9).toString() :
-      tinycolor(this.skin[_nameBg]).lighten(9).toString();
+      tinycolor(this.skin[_nameBg]).darken(12).toString() :
+      tinycolor(this.skin[_nameBg]).lighten(15).toString();
 
     this.skin[_nameTxt] = guessVisibleColor(this.skin[_nameBg]) === "#000" ?
       tinycolor(guessVisibleColor(this.skin[_nameBg])).lighten(0).toString() :
@@ -204,11 +204,11 @@ class Skinner {
       }
 
       this.skin[_nameBg2] = this.skin[_isNameDark] ?
-        tinycolor(this.skin[_nameBg]).darken(6).toString() :
-        tinycolor(this.skin[_nameBg]).lighten(6).toString();
+        tinycolor(this.skin[_nameBg]).darken(10).toString() :
+        tinycolor(this.skin[_nameBg]).lighten(10).toString();
       this.skin[_nameBg3] = this.skin.isWidgetBgDark ?
-        tinycolor(this.skin[_nameBg]).darken(9).toString() :
-        tinycolor(this.skin[_nameBg]).lighten(9).toString();
+        tinycolor(this.skin[_nameBg]).darken(12).toString() :
+        tinycolor(this.skin[_nameBg]).lighten(15).toString();
       this.skin[_nameBgHov] = this.skin.isWidgetBgDark ?
         tinycolor(this.skin[_nameBg]).darken(2).toString() :
         tinycolor(this.skin[_nameBg]).lighten(2).toString();
@@ -245,8 +245,11 @@ class Skinner {
       }
 
       this.skin[_nameBg2] = this.skin[_isFallbackDark] ?
-        tinycolor(this.skin[_nameBg]).darken(6).toString() :
-        tinycolor(this.skin[_nameBg]).lighten(6).toString();
+        tinycolor(this.skin[_nameBg]).darken(10).toString() :
+        tinycolor(this.skin[_nameBg]).lighten(10).toString();
+      this.skin[_nameBg3] = this.skin[_isFallbackDark] ?
+        tinycolor(this.skin[_nameBg]).darken(12).toString() :
+        tinycolor(this.skin[_nameBg]).lighten(15).toString();
       this.skin[_nameBgL] = tinycolor(this.skin[_nameBg]).lighten(8).toString();
       this.skin[_nameBgD] = tinycolor(this.skin[_nameBg]).darken(8).toString();
 
@@ -269,9 +272,13 @@ class Skinner {
   }
 
   generateTheme() {
-    this.skin.primaryBg2 = this.skin.isDark ?
+    this.skin.primaryBg2 = this.skin.isPrimaryBgDark ?
       tinycolor(this.skin.primaryBg).darken(10).toString() :
       tinycolor(this.skin.primaryBg).lighten(10).toString();
+
+    this.skin.primaryBg3 = this.skin.isPrimaryBgDark ?
+      tinycolor(this.skin.primaryBg).darken(12).toString() :
+      tinycolor(this.skin.primaryBg).lighten(15).toString();
 
     if (this.skin.isCustomPrimaryTxt) {
       this.skin.primaryTxt = this.skin.customPrimaryTxt;
@@ -295,7 +302,7 @@ class Skinner {
     this.generateColorLogick("odd", "primary", "Bg");
     this.generateColorLogick("showMore", "primary", "Bg");
     this.generateColorLogick("header", "widget", "Bg");
-    this.generateColorLogick("subHeader", "primary", "Bg");
+    this.generateColorLogick("subHeader", "widget");
     this.generateColorLogick("singleGame", "widget", "Bg");
     this.generateColorLogick("leftMenuLevel_A", "widget", "Bg");
     this.generateColorLogick("leftMenuLevel_B", "widget");
@@ -303,7 +310,7 @@ class Skinner {
     this.generateColorLogick("betSlip", "widget", "Bg");
     this.generateColorLogick("betSlipStake", "widget");
     this.generateColorLogick("betSlipInput", "betSlip");
-    this.generateColorLogick("betSlipButton", "odd");
+    this.generateColorLogick("betSlipButton", "betSlip");
     this.generateColorLogick("popupHeader", "widget");
     this.generateColorLogick("popup", "widget", "Bg");
     this.generateColorLogick("activeTab", "widget", "Bg");
@@ -311,7 +318,7 @@ class Skinner {
     this.generateColorLogick("sideBarActiveTab", "activeTab", "Bg");
     this.generateColorLogick("sideBarTab", "tab");
     this.generateColorLogick("input", "widget", "Bg");
-    this.generateColorLogick("widgetInput", "primary", "Bg");
+    this.generateColorLogick("widgetInput", "primary", "Bg3");
 
     this.generateBorderRadiusLogick("inputBorderRadius", "borderRadius");
     this.generateBorderRadiusLogick("buttonBorderRadius", "borderRadius");
@@ -364,8 +371,6 @@ class Skinner {
         (this[_nameBg].pickerTxtColor.enable()) :
         (this[_nameBg].pickerTxtColor.disable());
     }
-
-
   }
 
   modifyRange(name) {
@@ -380,7 +385,6 @@ class Skinner {
     this.skin[_isName] ?
       (this[_name].range.disabled = false) :
       (this[_name].range.disabled = true);
-
   }
 
   applyInitialValues() {
@@ -953,16 +957,9 @@ class Skinner {
   }
 }
 
-var head = document.getElementsByTagName("head")[0];
-var style = document.createElement("style");
-style.setAttribute("type", "text/css");
-head.appendChild(style);
 
-let _createJs = window.createJs ? window.createJs : null;
 
-var SkinnerInstance = new Skinner(createCss, _createJs);
 
-SkinnerInstance.init();
 
 function addActiveClassToNavigation() {
   let nav = document.querySelectorAll(".nik_skinner_link");

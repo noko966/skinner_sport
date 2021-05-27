@@ -6,6 +6,18 @@
     font-style: normal;
 }
 
+#loader{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
 .tg-ico-arrow {
     width: 24px;
     height: 24px;
